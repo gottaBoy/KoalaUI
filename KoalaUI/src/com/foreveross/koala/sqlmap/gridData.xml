@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap 
+PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"./sql-map-2.dtd">
+<sqlMap namespace="gridData">
+
+	<!--配置高速缓存-->
+	<cacheModel id="gridDataCache" type="LRU" readOnly="true" serialize="false">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="gridData.insert"/>
+		<property value="1000" name="size" />
+	</cacheModel>
+	
+	<typeAlias alias="gridData" type="com.foreveross.koala.model.GridData"/>
+	
+	<resultMap class="gridData" id="gridDataMap">
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="country" column="country"/>
+		<result property="population" column="population"/>
+	</resultMap>
+	
+	<insert id="insert" parameterClass="gridData">
+		INSERT INTO T_DATA (NAME,COUNTRY,POPULATION)
+		VALUES ('#name#','#country#,'#population#);
+		<selectKey resultClass="int" keyProperty="id">
+			SELECT	last_insert_id() AS id
+		</selectKey>
+	</insert>
+	
+	<select id="selectDataGrid" parameterClass="hashmap" resultClass="gridData">
+		SELECT ID,NAME,COUNTRY,POPULATION FROM T_DATA
+		<dynamic prepend="WHERE"> 
+                <isNotNull property="name" prepend="and">
+                    name like #name#
+                </isNotNull> 
+                 <isNotNull property="population" prepend="and">
+                    population $population$
+                </isNotNull>           
+        </dynamic>
+		<dynamic>
+			<isNotEmpty prepend=" ORDER BY " property="orderBy">$orderBy$</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="selectDataGridCount" resultClass="int" remapResults="true">
+		SELECT 	count(*)
+		FROM	T_DATA
+		<dynamic prepend="WHERE"> 
+                <isNotNull property="name" prepend="and">
+                    name like #name#
+                </isNotNull>   
+                 <isNotNull property="population" prepend="and">
+                   population $population$
+                </isNotNull>           
+        </dynamic>
+	</select>
+	
+</sqlMap>

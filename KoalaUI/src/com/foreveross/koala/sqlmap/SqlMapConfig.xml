@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig
+PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+"./sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings useStatementNamespaces="true" cacheModelsEnabled="true" lazyLoadingEnabled="false" enhancementEnabled="false" />
+
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="com.mysql.jdbc.Driver" />
+			<property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost:3306/koala?useUnicode=true&amp;characterEncoding=gbk" />
+			<property name="JDBC.Username" value="root" />
+			<property name="JDBC.Password" value="" />
+		</dataSource>
+<!--		<dataSource type="JNDI">-->
+<!--			<property name="DataSource" value="java:comp/env/jdbc/businfo" />-->
+<!--		</dataSource>-->
+	</transactionManager>
+	
+
+	<sqlMap resource="com/foreveross/koala/sqlmap/menu.xml" />
+	<sqlMap resource="com/foreveross/koala/sqlmap/gridData.xml" />
+</sqlMapConfig>

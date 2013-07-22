@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="fuelux">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>数字微调</title>
+<link href="../lib/fuelux/css/fuelux.css" rel="stylesheet">
+<script src="../lib/require.js" type="text/javascript"></script>
+<script src="../lib/jquery.js" type="text/javascript"></script>
+<script src="./koala_common.js" type="text/javascript"></script>
+</head>
+<body>
+
+
+	<div class="well spinner-example">
+
+		<div class="spinner" id="MySpinner">
+			<input type="text" class="input-mini spinner-input" maxlength="3">
+
+			<div class="spinner-buttons	 btn-group btn-group-vertical">
+				<button class="btn spinner-up" type="button">
+					<i class="icon-chevron-up"></i>
+				</button>
+				<button class="btn spinner-down" type="button">
+					<i class="icon-chevron-down"></i>
+				</button>
+			</div>
+		</div>
+
+		<div class="span8">
+			<input type="button" value="enable" id="spinner-enable" class="btn">
+			<input type="button" value="disable" id="spinner-disable" class="btn">
+			<input type="button" value="log value to console" id="spinner-log" class="btn">
+			
+		</div>
+
+	</div>
+</body>
+</html>
