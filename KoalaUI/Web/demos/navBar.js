@@ -13,9 +13,8 @@
 		
 		initPosition();
 
-		var isIE = navigator.userAgent.indexOf('MSIE') != -1;
-	    var isIE6 = isIE && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == '6');
-
+		var isIE = window.ActiveXObject;
+		var isIE6 = isIE && !window.XMLHttpRequest;
 	 	// 重新定位
 		$(window).resize(function() {
 			initPosition();
