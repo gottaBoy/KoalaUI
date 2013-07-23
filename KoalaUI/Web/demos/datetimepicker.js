@@ -997,7 +997,12 @@
             var collapseData = expanded.data('collapse');
             if (collapseData && collapseData.transitioning) return;
             expanded.collapse('hide');
-            closed.collapse('show')
+            closed.collapse('show');
+            if(expanded.attr("index") == 1){
+                $parent.parent().height(146+$this.height());
+            }else{
+                $parent.parent().height(224+$this.height());
+            }
             $this.find('i').toggleClass(self.timeIcon + ' ' + self.dateIcon);
             self.$element.find('.add-on i').toggleClass(self.timeIcon + ' ' + self.dateIcon);
           }
@@ -1185,13 +1190,13 @@
       return (
         '<div class="bootstrap-datetimepicker-widget dropdown-menu">' +
           '<ul>' +
-            '<li' + (collapse ? ' class="collapse in"' : '') + '>' +
+            '<li' + (collapse ? ' index="1" class="collapse in"' : '') + '>' +
               '<div class="datepicker">' +
                 DPGlobal.template +
               '</div>' +
             '</li>' +
-            '<li class="picker-switch accordion-toggle"><a><i class="' + timeIcon + '"></i></a></li>' +
-            '<li' + (collapse ? ' class="collapse"' : '') + '>' +
+            '<li  index="2" class="picker-switch accordion-toggle"><a><i class="' + timeIcon + '"></i></a></li>' +
+            '<li' + (collapse ? '  index="3" class="collapse"' : '') + '>' +
               '<div class="timepicker">' +
                 TPGlobal.getTemplate(is12Hours, showSeconds) +
               '</div>' +
