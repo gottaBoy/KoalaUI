@@ -67,11 +67,26 @@
         	if(this.pickDate && !this.pickTime){
         		this.format = 'yyyy-MM-dd';
         	}else if(!this.pickDate && this.pickTime){
-        		this.format = 'hh:mm:ss';
+        		if(this.options.pick12HourFormat){
+        			this.format = 'HH:mm:ss PP';	
+        		}else{
+        			this.format = 'hh:mm:ss';
+        		}
         	}else{
-            	this.format = 'yyyy-MM-dd hh:mm:ss';
+        		if(this.options.pick12HourFormat){
+        			this.format = 'yyyy-MM-dd HH:mm:ss PP';	
+        		}else{
+        			this.format = 'yyyy-MM-dd hh:mm:ss';
+        		}
         	}
         }
+      }else{
+    	  if(this.options.pick12HourFormat){
+    		  this.format = this.format.replace('hh','HH');
+    	  }else{
+    		  this.format = this.format.replace('HH','hh');  
+    		  this.format = this.format.replace('PP','');
+    	  }
       }
       this._compileFormat();
       if (this.component) {
