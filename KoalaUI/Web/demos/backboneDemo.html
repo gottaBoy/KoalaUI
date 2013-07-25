@@ -4,9 +4,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>backbone demo</title>
         <script type="text/javascript" src="../lib/jquery.js"></script>
-        <script type="text/javascript" src="../lib/underscore-1.1.6.js"></script>
+        <script type="text/javascript" src="../lib/underscore.js"></script>
         <script type="text/javascript" src="../lib/backbone.js"></script>
-        <script type="text/javascript" src="../lib/backbone-localstorage.js"></script>   
+        <script type="text/javascript" src="../lib/backbone-localStorage.js"></script>   
         <script type="text/javascript" src="backboneDemo.js"></script>   
         <style type="text/css">
         	html,body{
@@ -62,7 +62,6 @@
 			<br/>
 			<table class="emp-table" border="1" cellspacing="0" cellpadding="0">
 				<thead>
-					<th>序号</th>
 					<th>姓名</th>
 					<th>性别</th>
 					<th>年龄</th>
@@ -72,7 +71,6 @@
 				</tbody>
 			</table>
 			<script type="text/template" id="template">
-				<td><%= cid %></td>
 				<td class="username"><div class="display"><%= username %></div><div class="edit"><input class="username" name="username"></input></div></td>
 				<td class="sex"><div class="display"><%= sex=="1" ? "女":"男" %></div><div class="edit"><select name="sex" class="sex" style="width:45px"><option value="0">男</option><option value="1">女</option></select></div></td>
 				<td class="age"><div class="display"><%= age %></div><div class="edit"><input class="age" name="age"></input></div></td>

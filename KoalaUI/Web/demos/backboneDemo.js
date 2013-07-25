@@ -1,18 +1,16 @@
 $().ready(function(){
-	window.People = Backbone.Model.extend({
-		validate : function(attrs){
-		
-		}
+	var People = Backbone.Model.extend({
+	
 	});
 	
-	window.PeopleList = Backbone.Collection.extend({
+	PeopleList = Backbone.Collection.extend({
 		model:People,
-		localStorage: new Store('peoples')
+		localStorage: new Backbone.LocalStorage("todos-backbone"),
 	});
 	
-	window.peoples = new PeopleList();
+	var Peoples = new PeopleList();
 	
-	window.PeopleView = Backbone.View.extend({
+	var PeopleView = Backbone.View.extend({
 		tagName: 'tr',
 		template: _.template($('#template').html()),
 		events: {
@@ -21,8 +19,8 @@ $().ready(function(){
 			'click .del' : 'clear'
 		},
 		initialize : function(){
-			this.model.bind('change', this.render, this);
-			this.model.bind('destroy', this.remove, this);
+			this.listenTo(this.model,"change", this.render);
+			this.listenTo(this.model,"destroy", this.remove);
 		},
 		
 		render : function(){
@@ -61,12 +59,12 @@ $().ready(function(){
 
 	});
 	
-	window.AppView = Backbone.View.extend({
+	var AppView = Backbone.View.extend({
 		el: $('#app'),
 		initialize : function(){
-			peoples.bind("add", this.addOne , this);
-			peoples.bind('reset', this.addAll , this);
-			peoples.fetch();
+			this.listenTo(Peoples,"add", this.addOne);
+			this.listenTo(Peoples,"reset", this.addAll);
+			Peoples.fetch();
 		},
 		events : {
 			'click  #add-btn' : 'createOnEnter' 
@@ -81,13 +79,10 @@ $().ready(function(){
 			people.bind('error',function(model,error){
 				alert(error);
 			});
-			if(people.set(attrs)){
-				peoples.create(people);
-			}
+			Peoples.create(attrs);
 		},
 		
 		addOne : function(people){
-			people.set({'cid' : people.get('cid') || peoples.length });
 			people.bind('error', function(model,error){
 				alert(error);
 			});
@@ -96,10 +91,10 @@ $().ready(function(){
 		},
 
 		addAll : function(){
-			peoples.each(this.addOne);
+			Peoples.each(this.addOne, this);
 		}
 
 	});
 	
-	window.app = new AppView();
+	var app = new AppView();
 })
