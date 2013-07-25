@@ -72,7 +72,7 @@ $().ready(function(){
 		createOnEnter : function(){
 			var people = new People();
 			var attrs = {};
-			$('#emp-form input,#emp-form select').each(function(){
+			$('#emp-form input[type="text"],#emp-form select').each(function(){
 				var input = $(this);
 				attrs[input.attr('name')] = input.val();
 				input.val("");
