@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>backbone demo</title>
+        <script type="text/javascript" src="../lib/jquery.js"></script>
+        <script type="text/javascript" src="../lib/underscore-1.1.6.js"></script>
+        <script type="text/javascript" src="../lib/backbone.js"></script>
+        <script type="text/javascript" src="../lib/backbone-localstorage.js"></script>   
+        <script type="text/javascript" src="backboneDemo.js"></script>   
+        <style type="text/css">
+        	html,body{
+				height: 100%;
+				width : 100%;
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+			}
+			input.username{
+				width : 140px;
+			}
+			input.age{
+				width : 50px;
+			}
+			select.sex{
+				width : 60px;
+			}
+			.emp-table{
+				width: 100%;
+				text-align: center;
+			}
+			.emp-table tr{
+				height: 30px;
+			}
+			.emp-table td .edit{
+				display: none;
+			}
+			.emp-table td.editing .edit{
+				display: block;
+			}
+			.emp-table td.editing .display{
+				display: none;
+			}	
+        </style>
+    </head>
+    <body>
+        <div style="width: 650px;margin: 0 auto;" id="app">
+        	<br/>
+        	<br/>
+			<div id="emp-form" align="center">
+				<label>姓名:</label>
+				<input type="text" name="username" class="username"/>
+				<label>&nbsp;性别:</label>
+				<select name="sex" class="sex">
+						<option value="0">男</option>
+						<option value="1">女</option>
+				</select>
+				<label>&nbsp;年龄:</label>
+				<input type="text" name="age" class="age"/>
+				<input type="button" value="添加" id="add-btn">
+			</div>
+			<br/>
+			<table class="emp-table" border="1" cellspacing="0" cellpadding="0">
+				<thead>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>年龄</th>
+					<th>操作</th>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<script type="text/template" id="template">
+				<td><%= cid %></td>
+				<td class="username"><div class="display"><%= username %></div><div class="edit"><input class="username" name="username"></input></div></td>
+				<td class="sex"><div class="display"><%= sex=="1" ? "女":"男" %></div><div class="edit"><select name="sex" class="sex" style="width:45px"><option value="0">男</option><option value="1">女</option></select></div></td>
+				<td class="age"><div class="display"><%= age %></div><div class="edit"><input class="age" name="age"></input></div></td>
+				<td><a href="#" class="del">删除</a></td>
+			</script>
+		</div>
+    </body>
+</html>
