@@ -75,6 +75,7 @@ $().ready(function(){
 			$('#emp-form input,#emp-form select').each(function(){
 				var input = $(this);
 				attrs[input.attr('name')] = input.val();
+				input.val("");
 			});
 			people.bind('error',function(model,error){
 				alert(error);
