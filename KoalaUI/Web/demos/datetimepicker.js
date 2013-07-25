@@ -67,11 +67,26 @@
         	if(this.pickDate && !this.pickTime){
         		this.format = 'yyyy-MM-dd';
         	}else if(!this.pickDate && this.pickTime){
-        		this.format = 'hh:mm:ss';
+        		if(this.options.pick12HourFormat){
+        			this.format = 'HH:mm:ss PP';	
+        		}else{
+        			this.format = 'hh:mm:ss';
+        		}
         	}else{
-            	this.format = 'yyyy-MM-dd hh:mm:ss';
+        		if(this.options.pick12HourFormat){
+        			this.format = 'yyyy-MM-dd HH:mm:ss PP';	
+        		}else{
+        			this.format = 'yyyy-MM-dd hh:mm:ss';
+        		}
         	}
         }
+      }else{
+    	  if(this.options.pick12HourFormat){
+    		  this.format = this.format.replace('hh','HH');
+    	  }else{
+    		  this.format = this.format.replace('HH','hh');  
+    		  this.format = this.format.replace('PP','');
+    	  }
       }
       this._compileFormat();
       if (this.component) {
@@ -997,7 +1012,12 @@
             var collapseData = expanded.data('collapse');
             if (collapseData && collapseData.transitioning) return;
             expanded.collapse('hide');
-            closed.collapse('show')
+            closed.collapse('show');
+            if(expanded.attr("index") == 1){
+                $parent.parent().height(146+$this.height());
+            }else{
+                $parent.parent().height(224+$this.height());
+            }
             $this.find('i').toggleClass(self.timeIcon + ' ' + self.dateIcon);
             self.$element.find('.add-on i').toggleClass(self.timeIcon + ' ' + self.dateIcon);
           }
@@ -1185,13 +1205,13 @@
       return (
         '<div class="bootstrap-datetimepicker-widget dropdown-menu">' +
           '<ul>' +
-            '<li' + (collapse ? ' class="collapse in"' : '') + '>' +
+            '<li' + (collapse ? ' index="1" class="collapse in"' : '') + '>' +
               '<div class="datepicker">' +
                 DPGlobal.template +
               '</div>' +
             '</li>' +
-            '<li class="picker-switch accordion-toggle"><a><i class="' + timeIcon + '"></i></a></li>' +
-            '<li' + (collapse ? ' class="collapse"' : '') + '>' +
+            '<li  index="2" class="picker-switch accordion-toggle"><a><i class="' + timeIcon + '"></i></a></li>' +
+            '<li' + (collapse ? '  index="3" class="collapse"' : '') + '>' +
               '<div class="timepicker">' +
                 TPGlobal.getTemplate(is12Hours, showSeconds) +
               '</div>' +
