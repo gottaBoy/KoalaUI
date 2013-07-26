@@ -1,4 +1,4 @@
-package com.foreveross.koala.dao;
+package org.openkoala.koalaui.dao;
 
 import java.sql.SQLException;
 import java.util.HashMap;

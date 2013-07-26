@@ -1,4 +1,4 @@
-package com.foreveross.koala.model;
+package org.openkoala.koalaui.model;
 
 import java.util.List;
 

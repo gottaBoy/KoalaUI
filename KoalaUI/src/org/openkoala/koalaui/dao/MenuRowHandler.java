@@ -1,10 +1,11 @@
-package com.foreveross.koala.dao;
+package org.openkoala.koalaui.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.foreveross.koala.model.Menu;
-import com.foreveross.koala.model.MenuNode;
+import org.openkoala.koalaui.model.Menu;
+import org.openkoala.koalaui.model.MenuNode;
+
 import com.ibatis.sqlmap.client.event.RowHandler;
 
 public class MenuRowHandler implements RowHandler {

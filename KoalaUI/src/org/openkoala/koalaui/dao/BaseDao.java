@@ -1,4 +1,4 @@
-package com.foreveross.koala.dao;
+package org.openkoala.koalaui.dao;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 

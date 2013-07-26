@@ -1,4 +1,4 @@
-package com.foreveross.koala.service;
+package org.openkoala.koalaui.service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.openkoala.koalaui.dao.DataGridDao;
+import org.openkoala.koalaui.model.Page;
 
-import com.foreveross.koala.dao.DataGridDao;
-import com.foreveross.koala.model.Page;
 
 public class DataGridService extends PageServiceImpl{
 

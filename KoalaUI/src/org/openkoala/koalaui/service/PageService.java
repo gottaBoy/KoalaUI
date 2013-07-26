@@ -1,4 +1,4 @@
-package com.foreveross.koala.service;
+package org.openkoala.koalaui.service;
 
 import java.sql.SQLException;
 import java.util.List;

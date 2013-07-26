@@ -1,13 +1,13 @@
-package com.foreveross.koala.service;
+package org.openkoala.koalaui.service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.openkoala.koalaui.dao.MenuDao;
+import org.openkoala.koalaui.model.MenuNode;
 
-import com.foreveross.koala.dao.MenuDao;
-import com.foreveross.koala.model.MenuNode;
 
 public class MenuService {
 

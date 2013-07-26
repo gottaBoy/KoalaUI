@@ -18,6 +18,6 @@ PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
 	</transactionManager>
 	
 
-	<sqlMap resource="com/foreveross/koala/sqlmap/menu.xml" />
-	<sqlMap resource="com/foreveross/koala/sqlmap/gridData.xml" />
+	<sqlMap resource="org/openkoala/koalaui/sqlmap/menu.xml" />
+	<sqlMap resource="org/openkoala/koalaui/sqlmap/gridData.xml" />
 </sqlMapConfig>

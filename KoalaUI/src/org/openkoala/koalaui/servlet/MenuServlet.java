@@ -1,4 +1,4 @@
-package com.foreveross.koala.servlet;
+package org.openkoala.koalaui.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,25 +13,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.openkoala.koalaui.model.MenuNode;
+import org.openkoala.koalaui.model.MenuUtil;
+import org.openkoala.koalaui.service.MenuService;
 
-import com.foreveross.koala.model.Column;
-import com.foreveross.koala.service.DataGridService;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 /**
  * Servlet implementation class MenuServlet
  */
-public class DataGridServlet extends HttpServlet {
+public class MenuServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = Logger.getLogger(DataGridServlet.class);
+	private static final Logger logger = Logger.getLogger(MenuServlet.class);
 
-	private DataGridService dataGridService = new DataGridService();
+	private MenuService menuService = new MenuService();
     /**
      * Default constructor. 
      */
-    public DataGridServlet() {
+    public MenuServlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -48,29 +48,37 @@ public class DataGridServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Map<String, Object> condition = new Gson().fromJson(request.getParameter("condition"), 
-				new TypeToken<Map<String, String>>() {}.getType());
-		List<Map<String, Object>> list = dataGridService.getGridData(condition);
-		Map<String,Object> result = new HashMap<String, Object>();
-		List<Column> columns = getColumns();
-		result.put("columns", columns);
-		result.put("datas", list);
-		result.put("page", dataGridService.getPageContion());
+		List<MenuNode> list = menuService.getAllMenu();
+		
+		MenuNode mn = MenuUtil.toMenuTree(list);
+		list = new ArrayList<MenuNode>();
+		list.addAll(mn.getChildren().values());
+		
+		logger.debug(new Gson().toJson(list));
+		
+		/*List<Map<String,Object>> menuList = new ArrayList<Map<String,Object>>();
+		for(int i=0; i<3; i++){
+			Map<String,Object> menu = new HashMap<String, Object>();
+			menu.put("title", "title"+i);
+			menu.put("type", "parent");
+			menu.put("href", "href"+i);
+			List<Map<String,Object>> children = new ArrayList<Map<String,Object>>();
+			for(int j=0; j<4; j++){
+				Map<String,Object> child = new HashMap<String, Object>();
+				child.put("title", "child"+j);
+				child.put("type", "children");
+				child.put("href", "href"+j);
+				children.add(child);
+			}
+			menu.put("children", children);
+			menuList.add(menu);
+		}*/
 		response.setContentType("text/xml;charset=UTF-8");  
 		response.setHeader("Cache-Control", "no-cache");  
 		PrintWriter out = response.getWriter();
-		out.write(new Gson().toJson(result));
+		out.write(new Gson().toJson(list));
 		out.flush();
 		out.close();
-	}
-
-	private List<Column> getColumns() {
-		List<Column> columns = new ArrayList<Column>();
-		columns.add(new Column("id","id",false,true));
-		columns.add(new Column("name","name",true,false));
-		columns.add(new Column("country","country",true,false));
-		columns.add(new Column("population","population",true,false));
-		return columns;
 	}
 
 }

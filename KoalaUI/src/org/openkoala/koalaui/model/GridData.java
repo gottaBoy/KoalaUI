@@ -1,4 +1,4 @@
-package com.foreveross.koala.model;
+package org.openkoala.koalaui.model;
 
 public class GridData {
 	

@@ -1,4 +1,4 @@
-package com.foreveross.koala.dao;
+package org.openkoala.koalaui.dao;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -18,7 +18,7 @@ public class SqlMapFactory {
 
 	private final static Logger log = Logger.getLogger(SqlMapFactory.class);
 	private static SqlMapFactory factory = null;
-	private String xmlPath = "com/foreveross/koala/sqlmap/SqlMapConfig.xml";
+	private String xmlPath = "org/openkoala/koalaui/sqlmap/SqlMapConfig.xml";
 	private SqlMapClient sqlmap = null;
 	
 	private SqlMapFactory(){
