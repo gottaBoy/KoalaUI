@@ -6720,7 +6720,7 @@ textarea.span1,
   background-color:#b9dff1;
 }
 
-.fuelux .fuelux  .wizard {
+.fuelux  .wizard {
   background-color:#f9f9f9;
   border:1px solid #d4d4d4;
   -webkit-border-radius:4px;
@@ -6732,24 +6732,24 @@ textarea.span1,
           box-shadow:0 1px 4px rgba(0, 0, 0, 0.065);
 }
 
-.fuelux .fuelux  .wizard:before,
-.fuelux .fuelux  .wizard:after {
+.fuelux  .wizard:before,
+.fuelux  .wizard:after {
   display:table;
   line-height:0;
   content:"";
 }
 
-.fuelux .fuelux  .wizard:after {
+.fuelux  .wizard:after {
   clear:both;
 }
 
-.fuelux .fuelux  .wizard ul {
+.fuelux  .wizard ul {
   padding:0;
   margin:0;
   list-style:none outside none;
 }
 
-.fuelux .fuelux  .wizard ul li {
+.fuelux  .wizard ul li {
   position:relative;
   float:left;
   height:46px;
@@ -6762,7 +6762,7 @@ textarea.span1,
   background:#ededed;
 }
 
-.fuelux .fuelux  .wizard ul li .chevron {
+.fuelux  .wizard ul li .chevron {
   position:absolute;
   top:0;
   right:-14px;
@@ -6772,7 +6772,7 @@ textarea.span1,
   border-left:14px solid #d4d4d4;
 }
 
-.fuelux .fuelux  .wizard ul li .chevron:before {
+.fuelux .wizard ul li .chevron:before {
   position:absolute;
   top:-24px;
   right:1px;
@@ -6783,97 +6783,97 @@ textarea.span1,
   content:"";
 }
 
-.fuelux .fuelux  .wizard ul li.complete {
+.fuelux  .wizard ul li.complete {
   color:#468847;
   background:#f3f4f5;
 }
 
-.fuelux .fuelux  .wizard ul li.complete:hover {
+.fuelux  .wizard ul li.complete:hover {
   cursor:pointer;
   background:#e7eff8;
 }
 
-.fuelux .fuelux  .wizard ul li.complete:hover .chevron:before {
+.fuelux  .wizard ul li.complete:hover .chevron:before {
   border-left:14px solid #e7eff8;
 }
 
-.fuelux .fuelux  .wizard ul li.complete .chevron:before {
+.fuelux  .wizard ul li.complete .chevron:before {
   border-left:14px solid #f3f4f5;
 }
 
-.fuelux .fuelux  .wizard ul li.active {
+.fuelux  .wizard ul li.active {
   color:#3a87ad;
   background:#f1f6fc;
 }
 
-.fuelux .fuelux  .wizard ul li.active .chevron:before {
+.fuelux  .wizard ul li.active .chevron:before {
   border-left:14px solid #f1f6fc;
 }
 
-.fuelux .fuelux  .wizard ul li .badge {
+.fuelux  .wizard ul li .badge {
   margin-right:8px;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(1) {
+.fuelux  .wizard ul li:nth-child(1) {
   z-index:10;
   padding-left:20px;
   border-radius:4px 0 0 4px;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(2) {
+.fuelux  .wizard ul li:nth-child(2) {
   z-index:9;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(3) {
+.fuelux  .wizard ul li:nth-child(3) {
   z-index:8;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(4) {
+.fuelux  .wizard ul li:nth-child(4) {
   z-index:7;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(5) {
+.fuelux  .wizard ul li:nth-child(5) {
   z-index:6;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(6) {
+.fuelux  .wizard ul li:nth-child(6) {
   z-index:5;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(7) {
+.fuelux  .wizard ul li:nth-child(7) {
   z-index:4;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(8) {
+.fuelux  .wizard ul li:nth-child(8) {
   z-index:3;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(9) {
+.fuelux  .wizard ul li:nth-child(9) {
   z-index:2;
 }
 
-.fuelux .fuelux  .wizard ul li:nth-child(10) {
+.fuelux  .wizard ul li:nth-child(10) {
   z-index:1;
 }
 
-.fuelux .fuelux  .wizard .actions {
+.fuelux  .wizard .actions {
   float:right;
   padding-right:15px;
   line-height:44px;
   vertical-align:middle;
 }
 
-.fuelux .fuelux  .wizard .actions a {
+.fuelux  .wizard .actions a {
   margin-right:8px;
   font-size:12px;
   line-height:45px;
 }
 
-.fuelux .fuelux  .wizard .actions .btn-prev i {
+.fuelux  .wizard .actions .btn-prev i {
   margin-right:5px;
 }
 
-.fuelux .fuelux  .wizard .actions .btn-next i {
+.fuelux  .wizard .actions .btn-next i {
   margin-left:5px;
 }
 
@@ -7104,154 +7104,4 @@ textarea.span1,
 .fuelux .datetimepicker .left-oriented:after {
 	left:auto;
 	right:7px
-}
-
-/*
-*向导组件
-*/
-.fuelux .wizard {
-	border:1px solid #d4d4d4;
-	font-size:12px;
-	height:450px;
-	margin:20px auto;
-	width:570px;
-	overflow:hidden;
-	position:relative;
-	-webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-	  *zoom: 1;
-	  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-	     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-	          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-}
-.fuelux  .wizard ul {
-  padding: 0;
-  margin: 0;
-  list-style: none outside none;
-}
-
-.fuelux  .wizard ul li {
-  position: relative;
-  float: left;
-  height: 46px;
-  padding: 0 20px 0 30px;
-  margin: 0;
-  font-size: 16px;
-  line-height: 46px;
-  color: #999999;
-  cursor: default;
-  background: #ededed;
-}
-
-.fuelux  .wizard ul li.active {
-  color: #3a87ad;
-  background: #f1f6fc;
-}
-
-.fuelux  .wizard .items{
-	width:20000px; 
-	clear:both; 
-	position:absolute;
-}
-.fuelux  .wizard .right{
-	float:right;
-}
-.fuelux  .wizard .left{
-	float:left;
-}
-.fuelux  .wizard .status{
-	height:46px;
-	background:#ededed;
-}
-.status li{
-	float:left;
-	color:#fff;
-	padding:10px 30px;
-}
-
-.fuelux  .wizard .items .page{
-	padding:20px 30px;
-	width:500px;
-	float:left;
-}
-.fuelux  .wizard .items .page .input{
-	width:240px; 
-	height:20px; 
-	margin:10px auto; 
-	border:1px solid #d3d3d3; 
-	padding:2px;
-	*overflow: visible;
-    line-height: normal;
-   -webkit-appearance: textfield;
-}
-.fuelux  .wizard .items .page .input:focus{
-	border-color: rgba(82, 168, 236, 0.8);
-  	outline: 0;
-  	outline: thin dotted \9;
-  	/* IE6-9 */
-  	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-    	 -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-         	 box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-}
-.fuelux  .wizard .items .page h3{
-	height:42px; 
-	font-size:16px; 
-	border-bottom:1px dotted #ccc; 
-	margin-bottom:20px; 
-	padding-bottom:5px
-}
-.fuelux  .wizard .items .page h3 em{
-	font-size:12px; 
-	font-weight:500; 
-	font-style:normal
-}
-.fuelux  .wizard .items .page p{
-	line-height:24px;
-}
-.fuelux  .wizard .items .page p label{
-	font-size:14px; 
-	display:block;
-}
-.fuelux  .wizard .items .page .btn_nav{
-	height:36px; 
-	line-height:36px; 
-	margin:20px auto;
-}
-.fuelux  .wizard .items .page .btn_nav input:hover{
-	border-color: rgba(82, 168, 236, 0.8);
-	background:#f1f6fc;
-  	outline: 0;
-  	outline: thin dotted \9;
-  	/* IE6-9 */
-  	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-    	 -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-         	 box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-}
-
-.fuelux  .wizard .items .page .btn_nav .prev,.next{
-    border-radius: 0.5em 0.5em 0.5em 0.5em;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    display: inline-block;
-    font: 14px/100% Arial,Helvetica,sans-serif;
-    margin: 0 2px;
-    outline: medium none;
-    padding: 0.5em 2em 0.55em;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-    vertical-align: baseline;
-    background: -moz-linear-gradient(center top , #FFFFFF, #EDEDED) repeat scroll 0 0 transparent;
-    border: 1px solid #B7B7B7;
-    color: #606060;
-}
-
-.fuelux  .wizard .items .page .btn_nav .prev:hover,.next:hover{
-    background: -moz-linear-gradient(center top , #FFFFFF, #DCDCDC) repeat scroll 0 0 transparent;
-}
-
-.fuelux  .wizard .items .page .btn_nav .prev:active,.next:active {
-    background: -moz-linear-gradient(center top , #EDEDED, #FFFFFF) repeat scroll 0 0 transparent;
-    color: #999999;
 }
