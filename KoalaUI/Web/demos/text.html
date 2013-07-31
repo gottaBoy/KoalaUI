@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" class="fuelux">
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>标签徽章</title>
-<link href="../lib/fuelux/css/fuelux.css" rel="stylesheet">
-<script src="../lib/require.js" type="text/javascript"></script>
-<script src="../lib/jquery.js" type="text/javascript"></script>
-<script src="./koala_common.js" type="text/javascript"></script>
+<link href="../css/bootstrap3.0.css" rel="stylesheet">
+<link href="../css/koala.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="span5">
-	<span>文本：</span><input type="text" value="" size="20"><p></p>
-	<span>密码：</span><input type="password" value="" size="20"><p></p>        
-</div>
+<form class="bs-example bs-example-form" style="width:450px">
+      <div class="input-group">
+        <span class="input-group-addon input-large">@</span>
+        <input type="text" placeholder="Username" class="form-control input-large">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="text" placeholder="Username" class="form-control">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon input-small">@</span>
+        <input type="text" placeholder="Username" class="form-control input-small">
+      </div><p/>
+      <p/><input type="text" placeholder="Username" class="form-control input-large">
+      <p/><input type="text" placeholder="Username" class="form-control">
+      <p/><input type="text" placeholder="Username" class="form-control input-small">
+ </form>
 </body>
 </html>
