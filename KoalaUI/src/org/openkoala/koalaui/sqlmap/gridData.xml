@@ -11,7 +11,7 @@ PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
 		<property value="1000" name="size" />
 	</cacheModel>
 	
-	<typeAlias alias="gridData" type="com.foreveross.koala.model.GridData"/>
+	<typeAlias alias="gridData" type="org.openkoala.koalaui.model.GridData"/>
 	
 	<resultMap class="gridData" id="gridDataMap">
 		<result property="id" column="id"/>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../lib/jquery.js"></script>
+<script type="text/javascript" src="../lib/underscore.js"></script>
+<script type="text/javascript" src="../lib/backbone.js"></script>
+<script type="text/javascript">
+$(function(){
+	Menu = Backbone.Model.extend({
+		//urlRoot:'../MenuServlet',
+		initialize:function(){
+			
+		},
+		defaults:{
+			id:0,
+			title:"",
+			href:""
+		}
+	});
+	
+	MenuList = Backbone.Collection.extend({
+		model:Menu,
+		url:"../MenuServlet"
+	});
+	
+	//var menu = new Menu();
+	/*
+	menu.fetch({
+		url:'../MenuServlet',success:function(model,response){
+			alert(model);
+		},error:function(e){
+			alert(e);
+		}
+	});
+	*/
+	//用这种方法，变成rest风格了
+	//menu.fetch();
+	//alert(menu.get('id'));
+	
+	var menuList = new MenuList();
+	menuList.fetch();
+	
+	alert(menuList.toJSON());
+});
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -15,6 +15,17 @@ public class Menu {
 	//菜单连接地址
 	private String href;
 	
+	public Menu() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Menu(String id, String title, String href) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.href = href;
+	}
+
 	public String getId() {
 		return id;
 	}
