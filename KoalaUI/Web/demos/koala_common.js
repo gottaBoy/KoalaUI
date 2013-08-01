@@ -6,7 +6,7 @@ requirejs.config({
 	}
 });
 
-require(['jquery','../lib/fuelux/all'], function ($) {
+require(['jquery','fuelux/all',"datetimepicker"], function ($) {
 	// SEARCH CONTROL
 	$('#MySearch').on('searched', function (e, text) {
 		alert('Searched: ' + text);
@@ -48,4 +48,23 @@ require(['jquery','../lib/fuelux/all'], function ($) {
 	$('#combobox-selectByValue').on('click', function () {
 		$('#MyCombobox1').combobox('selectByValue', '3');
 	});
+	
+	//dateTime
+	
+	var datetimepicker = $('#datetimepicker').datetimepicker({
+		 language: 'zh-CN',
+		 pickDate: true,
+		 pickTime: false
+	});
+	var datetimepicker2 = $('#datetimepicker2').datetimepicker({
+	     language: 'zh-CN',
+	     pickDate: false,
+	     pickTime: true
+	});
+	var datetimepicker3 = $('#datetimepicker3').datetimepicker({
+	     language: 'zh-CN',
+	     pickDate: true,
+	     pickTime: true
+	});
+	
 });

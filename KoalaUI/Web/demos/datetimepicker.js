@@ -1203,7 +1203,7 @@
   function getTemplate(timeIcon, pickDate, pickTime, is12Hours, showSeconds, collapse) {
     if (pickDate && pickTime) {
       return (
-        '<div class="bootstrap-datetimepicker-widget dropdown-menu">' +
+        '<div class="datetimepicker dropdown-menu">' +
           '<ul>' +
             '<li' + (collapse ? ' index="1" class="collapse in"' : '') + '>' +
               '<div class="datepicker">' +
@@ -1221,7 +1221,7 @@
       );
     } else if (pickTime) {
       return (
-        '<div class="bootstrap-datetimepicker-widget dropdown-menu">' +
+        '<div class="datetimepicker dropdown-menu">' +
           '<div class="timepicker">' +
             TPGlobal.getTemplate(is12Hours, showSeconds) +
           '</div>' +
@@ -1229,7 +1229,7 @@
       );
     } else {
       return (
-        '<div class="bootstrap-datetimepicker-widget dropdown-menu">' +
+        '<div class="datetimepicker dropdown-menu">' +
           '<div class="datepicker">' +
             DPGlobal.template +
           '</div>' +
