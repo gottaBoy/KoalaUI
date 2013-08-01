@@ -14,7 +14,7 @@
     <description></description>
     <display-name>MenuServlet</display-name>
     <servlet-name>MenuServlet</servlet-name>
-    <servlet-class>com.foreveross.koala.servlet.MenuServlet</servlet-class>
+    <servlet-class>org.openkoala.koalaui.servlet.MenuServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MenuServlet</servlet-name>
@@ -25,7 +25,7 @@
   		<description></description>
   		<display-name>DataGridServlet</display-name>
   		<servlet-name>DataGridServlet</servlet-name>
-  		<servlet-class>com.foreveross.koala.servlet.DataGridServlet</servlet-class>
+  		<servlet-class>org.openkoala.koalaui.servlet.DataGridServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   		<servlet-name>DataGridServlet</servlet-name>

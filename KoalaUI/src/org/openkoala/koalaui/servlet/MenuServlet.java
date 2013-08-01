@@ -3,9 +3,7 @@ package org.openkoala.koalaui.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.openkoala.koalaui.model.Menu;
 import org.openkoala.koalaui.model.MenuNode;
 import org.openkoala.koalaui.model.MenuUtil;
 import org.openkoala.koalaui.service.MenuService;
@@ -54,7 +53,13 @@ public class MenuServlet extends HttpServlet {
 		list = new ArrayList<MenuNode>();
 		list.addAll(mn.getChildren().values());
 		
-		logger.debug(new Gson().toJson(list));
+		Menu menu1 = new Menu("1", "测试", "##");
+		Menu Menu2 = new Menu("2","随机标题","#");
+		List<Menu> menuList = new ArrayList<Menu>();
+		menuList.add(menu1);
+		menuList.add(Menu2);
+		
+		logger.debug(new Gson().toJson(menuList));
 		
 		/*List<Map<String,Object>> menuList = new ArrayList<Map<String,Object>>();
 		for(int i=0; i<3; i++){
@@ -76,7 +81,7 @@ public class MenuServlet extends HttpServlet {
 		response.setContentType("text/xml;charset=UTF-8");  
 		response.setHeader("Cache-Control", "no-cache");  
 		PrintWriter out = response.getWriter();
-		out.write(new Gson().toJson(list));
+		out.write(new Gson().toJson(menuList));
 		out.flush();
 		out.close();
 	}
