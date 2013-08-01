@@ -5,7 +5,7 @@ $().ready(function(){
 		validate: function(attrs){
 			for(var key in attrs){
 				if(attrs[key].length == 0){
-					return key+'不能为空';
+					//return key+'不能为空';
 				}
 					
 			}
