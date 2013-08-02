@@ -36,7 +36,7 @@ define(function(require) {
 		this.$startlabel = this.$element.find('.grid-start');
 		this.$endlabel = this.$element.find('.grid-end');
 
-		this.$tbody = $('<tbody>').insertAfter(this.$thead);
+		this.$tbody = $('<tbody>');
 		this.$colheader = $('<tr>').appendTo(this.$thead);
 
 		this.options = $.extend(true, {}, $.fn.datagrid.defaults, options);
