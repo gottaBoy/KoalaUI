@@ -31,4 +31,16 @@
   		<servlet-name>DataGridServlet</servlet-name>
   		<url-pattern>/DataGridServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  		<description></description>
+  		<display-name>GridServlet</display-name>
+  		<servlet-name>GridServlet</servlet-name>
+  		<servlet-class>org.openkoala.koalaui.servlet.GridServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  		<servlet-name>GridServlet</servlet-name>
+  		<url-pattern>/people/*</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
