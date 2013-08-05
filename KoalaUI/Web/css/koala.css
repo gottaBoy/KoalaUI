@@ -208,7 +208,7 @@
   top:10%;
   left:50%;
   width:560px;
-  height:210px;
+  height:205px;
   overflow: hidden;
   margin-left:-280px;
   background-color:#ffffff;
@@ -407,4 +407,65 @@
   float: left;
   width: 260px;
   margin: 20px;
+}
+
+/*Spinner*/
+.spinner input {
+  float:left;
+  width:56px;
+}
+
+.spinner .btn {
+  position:relative;
+  width:20px;
+  height:14px;
+  padding-top:0;
+  padding-right:9px;
+  padding-left:9px;
+}
+
+.spinner .btn.disabled {
+  cursor:not-allowed;
+}
+
+.spinner .spinner-buttons {
+  position:relative;
+  left:-21px;
+  float:left;
+  width:20px;
+  height:28px;
+}
+
+.spinner .spinner-up {
+  top:2px;
+  padding:0 0 4px 1px;
+}
+
+.spinner .spinner-up i {
+  position:relative;
+  top:-4px;
+}
+
+.spinner .spinner-down {
+  top:2px;
+  height:13px;
+  padding:0 0 4px 1px;
+}
+
+.spinner .spinner-down i {
+  position:relative;
+  top:-5px;
+}
+
+.icon-chevron-up {
+  background-position:-288px -120px;
+}
+
+.icon-chevron-down {
+  background-position:-313px -119px;
+}
+
+.btn-group-vertical > .btn + .btn {
+  margin-top:-1px;
+  margin-left:0;
 }
