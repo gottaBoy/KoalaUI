@@ -2,51 +2,60 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MVC的DEMO</title>
+<link href="../css/bootstrap3.0.css" rel="stylesheet">
 <script type="text/javascript" src="../lib/jquery.js"></script>
 <script type="text/javascript" src="../lib/underscore.js"></script>
 <script type="text/javascript" src="../lib/backbone.js"></script>
-<script type="text/javascript">
-$(function(){
-	Menu = Backbone.Model.extend({
-		//urlRoot:'../MenuServlet',
-		initialize:function(){
-			
-		},
-		defaults:{
-			id:0,
-			title:"",
-			href:""
-		}
-	});
-	
-	MenuList = Backbone.Collection.extend({
-		model:Menu,
-		url:"../MenuServlet"
-	});
-	
-	//var menu = new Menu();
-	/*
-	menu.fetch({
-		url:'../MenuServlet',success:function(model,response){
-			alert(model);
-		},error:function(e){
-			alert(e);
-		}
-	});
-	*/
-	//用这种方法，变成rest风格了
-	//menu.fetch();
-	//alert(menu.get('id'));
-	
-	var menuList = new MenuList();
-	menuList.fetch();
-	
-	alert(menuList.toJSON());
-});
-</script>
+<script type="text/javascript" src="../lib/bootstrap3.0.js" ></script>
 </head>
 <body>
-
+	<div class="dropdown clearfix" style="position: relative;">
+      <ul id="contact-list" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block;">
+        
+      </ul>
+      <p></p>
+      <button type="button" class="btn btn-primary" id="addDia" >增加用户</button>
+    </div>
+    
 </body>
+<script type="text/javascript">
+
+	(function($) {
+		var Contact = Backbone.Model.extend({
+			//创建一个contact对象，拥有name属性
+			name : 'NULL'
+		});
+		var ContackList = Backbone.Collection.extend({
+			initialize : function(models, options) {
+				//contact集合
+				this.bind('add', options.view.addOne);
+			}
+		});
+		var AppView = Backbone.View.extend({
+			el : $('body'),
+			initialize : function() {
+				//实例化集合，并传入AppView对象
+				this.contacts = new ContackList(null, {
+					view : this
+				});
+			},
+			events : {
+				'click #addDia' : 'addDia'
+			},
+			addDia : function() {
+				var name = prompt('请输入姓名');
+				var c = new Contact({
+					name : name
+				});
+				this.contacts.add(c);
+			},
+			addOne : function(model) {
+				$('#contact-list').append(
+						'<li><a tabindex="-1" href="#">' + model.get('name') + '</a></li>');
+			}
+		});
+		var app = new AppView();
+	})(jQuery)
+</script>
 </html>
