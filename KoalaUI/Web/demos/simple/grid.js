@@ -26,7 +26,8 @@ define(function(require) {
 		this.$searchcontrol = this.$element.find('.datagrid-search');
 		this.$filtercontrol = this.$element.find('.filter');
 		this.$pagesize = this.$element.find('.grid-pagesize');
-		this.$pageinput = this.$element.find('.grid-pager input');
+		this.$pageNo= this.$element.find('.grid-pager .input-group .form-control');
+		this.$pageinput = this.$element.find('.grid-pager input.dropdown-label');
 		this.$pagedropdown = this.$element.find('.grid-pager .dropdown-menu');
 		this.$prevpagebtn = this.$element.find('.grid-prevpage');
 		this.$nextpagebtn = this.$element.find('.grid-nextpage');
@@ -141,7 +142,6 @@ define(function(require) {
 
 		renderData: function () {
 			var self = this;
-
 			this.$tbody.html(this.placeholderRowHTML(this.options.loadingHTML));
 
 			this.options.dataSource.data(this.options.dataOptions, function (data) {
@@ -222,7 +222,6 @@ define(function(require) {
 		
 			this.options.dataOptions.pageIndex = 
 				(pageRequested > maxPages) ? maxPages - 1 : pageRequested - 1;
-
 			this.renderData();
 		},
 

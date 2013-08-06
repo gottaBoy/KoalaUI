@@ -27,18 +27,6 @@ require(['jquery','fuelux/all',"datetimepicker"], function ($) {
 		$("#MySpinner").spinner("enable");
 	});
 	
-	//tooltip
-	$('.tooltip-demo').tooltip({
-		selector: "a[data-toggle=tooltip]"
-    });
-	
-     // popover demo
-    $("a[data-toggle=popover]")
-      .popover()
-      .click(function(e) {
-        e.preventDefault()
-      });
-    
     //ComboBox
 
 	$('#btnComboboxSelectByValue').on('click', function () {

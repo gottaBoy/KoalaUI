@@ -4,20 +4,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>工具提示</title>
 <link href="../css/bootstrap3.0.css" rel="stylesheet">
-<link href="../css/koala.css" rel="stylesheet">
-<script src="../lib/require.js" type="text/javascript"></script>
 <script src="../lib/jquery.js" type="text/javascript"></script>
-<script src="./koala_common.js" type="text/javascript"></script>
+<script type="text/javascript" src="../lib/bootstrap3.0.js" ></script>
+<style type="text/css">
+.bs-example {
+    background-color: #FAFAFA;
+    border-color: #E5E5E5 #EEEEEE #EEEEEE;
+    border-style: solid;
+    border-width: 1px 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05) inset;
+    margin: 0 -15px -1px;
+    padding: 45px 65px 15px 350px;
+    position: relative;
+}
+</style>
+<script type="text/javascript">
+$().ready(function(){
+	$('[data-toggle="tooltip"]').tooltip()
+});
+</script>
 </head>
 <body>
 
-<div class="bs-docs-example tooltip-demo">
-   <ul class="bs-docs-tooltip-examples">
-     <li><a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="提示信息">上方弹出提示</a></li>
-     <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="提示信息">右边弹出提示</a></li>
-     <li><a title="" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="提示信息">下方弹出提示</a></li>
-     <li><a title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="提示信息">左边弹出提示</a></li>
-   </ul>
- </div>
+	<div style="padding: 100px 15px 15px 200px;">
+      <div class="bs-example-tooltips">
+        <button title="" data-placement="left" data-toggle="tooltip" class="btn btn-default" type="button" data-original-title="Tooltip on left">Tooltip on left</button>
+        <button title="" data-placement="top" data-toggle="tooltip" class="btn btn-default" type="button" data-original-title="Tooltip on top">Tooltip on top</button>
+        <button title="" data-placement="bottom" data-toggle="tooltip" class="btn btn-default" type="button" data-original-title="Tooltip on bottom">Tooltip on bottom</button>
+        <button title="" data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" data-original-title="Tooltip on right">Tooltip on right</button>
+      </div>
+    </div>
 </body>
 </html>
