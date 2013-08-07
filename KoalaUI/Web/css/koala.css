@@ -6,12 +6,13 @@
   position:relative;
   margin-bottom:20px;
   line-height:1;
-  width:63%
+  width:900px;
+  height:500px;
 }
 
 .carousel-inner {
   position:relative;
-  width:100%;
+ 
   overflow:hidden;
 }
 
