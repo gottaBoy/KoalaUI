@@ -462,7 +462,7 @@
 .datagrid tfoot .datagrid-footer-left .grid-controls .grid-pagesize .dropdown-menu {
   top:auto;
   left:auto;
-  min-width:20px;
+  min-width:40px;
 }
 
 .datagrid tfoot .datagrid-footer-left .grid-controls span {
@@ -475,6 +475,7 @@
 
 .datagrid tfoot .datagrid-footer-right .grid-pager .dropdown-menu {
   min-width:80px;
+  *min-width:60px;
 }
 
 .datagrid tfoot .datagrid-footer-right .grid-pager  span {
