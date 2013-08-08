@@ -172,7 +172,7 @@
           this._attachDatePickerEvents();
     },
 
-    hide: function() {
+    hide: function(e) {
       // Ignore event if in the middle of a picker transition
       var collapse = this.widget.find('.collapse')
       for (var i = 0; i < collapse.length; i++) {
@@ -1005,7 +1005,7 @@
           e.stopPropagation();
           var $this = $(this);
           var $parent = $this.closest('ul');
-          var expanded = $parent.find('.collapse.in');
+          var expanded = $parent.find('.in');
           var closed = $parent.find('.collapse:not(.in)');
 
           if (expanded && expanded.length) {
@@ -1013,11 +1013,13 @@
             if (collapseData && collapseData.transitioning) return;
             expanded.collapse('hide');
             closed.collapse('show');
-            if(expanded.attr("index") == 1){
-                $parent.parent().height(146+$this.height());
-            }else{
-                $parent.parent().height(224+$this.height());
-            }
+            if($.browser.msie){
+	            if(expanded.attr("index") == 1){
+	                $parent.parent().height(156+$this.height());
+	            }else{
+	                $parent.parent().height(252+$this.height());
+	            }
+	         }
             $this.find('i').toggleClass(self.timeIcon + ' ' + self.dateIcon);
             self.$element.find('.add-on i').toggleClass(self.timeIcon + ' ' + self.dateIcon);
           }
@@ -1203,7 +1205,7 @@
   function getTemplate(timeIcon, pickDate, pickTime, is12Hours, showSeconds, collapse) {
     if (pickDate && pickTime) {
       return (
-        '<div class="datetimepicker dropdown-menu">' +
+        '<div class="datetimepicker">' +
           '<ul>' +
             '<li' + (collapse ? ' index="1" class="collapse in"' : '') + '>' +
               '<div class="datepicker">' +
@@ -1213,7 +1215,7 @@
             '<li  index="2" class="picker-switch accordion-toggle"><a><i class="' + timeIcon + '"></i></a></li>' +
             '<li' + (collapse ? '  index="3" class="collapse"' : '') + '>' +
               '<div class="timepicker">' +
-                TPGlobal.getTemplate(is12Hours, showSeconds) +
+               TPGlobal.getTemplate(is12Hours, showSeconds) +
               '</div>' +
             '</li>' +
           '</ul>' +
@@ -1221,7 +1223,7 @@
       );
     } else if (pickTime) {
       return (
-        '<div class="datetimepicker dropdown-menu">' +
+        '<div class="datetimepicker">' +
           '<div class="timepicker">' +
             TPGlobal.getTemplate(is12Hours, showSeconds) +
           '</div>' +
@@ -1229,7 +1231,7 @@
       );
     } else {
       return (
-        '<div class="datetimepicker dropdown-menu">' +
+        '<div class="datetimepicker">' +
           '<div class="datepicker">' +
             DPGlobal.template +
           '</div>' +
@@ -1306,12 +1308,12 @@
         (is12Hours ? ' data-hour-format="12"' : '') +
         '>' +
         '<tr>' +
-          '<td><a href="#" class="btn" data-action="incrementHours"><i class="icon-chevron-up"></i></a></td>' +
+          '<td><a href="#" class="btn btn-default" data-action="incrementHours"><i class="icon-chevron-up"></i></a></td>' +
           '<td class="separator"></td>' +
-          '<td><a href="#" class="btn" data-action="incrementMinutes"><i class="icon-chevron-up"></i></a></td>' +
+          '<td><a href="#" class="btn btn-default" data-action="incrementMinutes"><i class="icon-chevron-up"></i></a></td>' +
           (showSeconds ?
           '<td class="separator"></td>' +
-          '<td><a href="#" class="btn" data-action="incrementSeconds"><i class="icon-chevron-up"></i></a></td>': '')+
+          '<td><a href="#" class="btn btn-default" data-action="incrementSeconds"><i class="icon-chevron-up"></i></a></td>': '')+
           (is12Hours ? '<td class="separator"></td>' : '') +
         '</tr>' +
         '<tr>' +
@@ -1328,12 +1330,12 @@
           '</td>' : '') +
         '</tr>' +
         '<tr>' +
-          '<td><a href="#" class="btn" data-action="decrementHours"><i class="icon-chevron-down"></i></a></td>' +
+          '<td><a href="#" class="btn btn-default" data-action="decrementHours"><i class="icon-chevron-down"></i></a></td>' +
           '<td class="separator"></td>' +
-          '<td><a href="#" class="btn" data-action="decrementMinutes"><i class="icon-chevron-down"></i></a></td>' +
+          '<td><a href="#" class="btn btn-default" data-action="decrementMinutes"><i class="icon-chevron-down"></i></a></td>' +
           (showSeconds ?
           '<td class="separator"></td>' +
-          '<td><a href="#" class="btn" data-action="decrementSeconds"><i class="icon-chevron-down"></i></a></td>': '') +
+          '<td><a href="#" class="btn btn-default" data-action="decrementSeconds"><i class="icon-chevron-down"></i></a></td>': '') +
           (is12Hours ? '<td class="separator"></td>' : '') +
         '</tr>' +
       '</table>' +
