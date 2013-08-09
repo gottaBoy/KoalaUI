@@ -39,7 +39,7 @@
 			  this.prev(e)
 	      }, this))
 	       this.items.find(this.options.complete).on('click.bs.wizard',$.proxy(function (e) {
-			  e.preventDefault()
+			  e && e.preventDefault()
 			  this.complete(e)
 	      }, this))
 	  }
