@@ -2,6 +2,7 @@
  * 向导组件
  * 
  */
+ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 +function ($) { 
 	
 	"use strict";
