@@ -151,7 +151,9 @@ define(function(require) {
 
     $(function () {
         $('.select').each(function () {
-              $(this).select($this.data());
+        	  var $this = $(this);
+        	  if ($this.data('select')) return;
+        	  $this.select($this.data());
         });
         
         $('body').on('mousedown.select.data-api', '.select', function (e) {
