@@ -18,17 +18,35 @@
     position: relative;
 }
 </style>
-</head>
+<script type="text/javascript">
+	$(function(){
+		$('#button1').on('click',function(){
+			var btn = $(this);
+			btn.button('loading');
+			setTimeout(function(){
+				btn.button('reset');
+			},2000)
+		})
+		$('#button2').on('click',function(){
+			var btn = $(this);
+			btn.button('loading');
+			setTimeout(function(){
+				btn.button('reset');
+			},2000)
+		})
+	})
+</script>
+<head>
 <body>
 
 <div>
  	<p></p><p></p>
   <div class="bs-example">
      	<!-- Standard gray button with gradient -->
-		<button type="button" class="btn btn-default">Default</button>
+		<button type="button" id="button1" data-loading-text="Loading..." class="btn btn-default">Default</button>
 		
 		<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-		<button type="button" class="btn btn-primary">Primary</button>
+		<button type="button" id="button2" data-loading-text="Loading..." class="btn btn-primary">Primary</button>
 		
 		<!-- Indicates a successful or positive action -->
 		<button type="button" class="btn btn-success">Success</button>
