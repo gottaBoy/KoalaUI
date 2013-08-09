@@ -1,80 +1,99 @@
-$().ready(function(){
+/**
+ * 向导组件
+ * 
+ */
++function ($) { 
 	
-	var Wizard = Backbone.Model.extend({
-		urlRoot: '/server',
-		validate: function(attrs){
-			for(var key in attrs){
-				if(attrs[key].length == 0){
-					//return key+'不能为空';
-				}
-					
-			}
-		}
-	});
+	"use strict";
+
+	  // Wizard PUBLIC CLASS DEFINITION
+	  // ==============================
 	
-	var WizardView = Backbone.View.extend({
-		el: $('.wizard'),
-		model : new Wizard(),
-		
-		initialize : function(){
-			this.listenTo(this.model, 'invalid', this.error)
-		},
-		error : function(model, error){
-			alert(error);
-		},
-		events : {
-			'click .prev' : 'prev',
-			'click .next' : 'next',
-			'click .complete' : 'complete'
-		},
-		
-		prev : function(e){
-			var target = $(e.currentTarget);
-			var page = target.parent().parent();
-			var index = page.data('index') - 1;
-			var ul = $(this.el).find('ul');
-			var n = {left : page.outerWidth() - page.position().left}
-			page.parent().animate(n , 400, "swing", function() {
-				ul.find('li').eq(page.index() - 1).find('a').tab('show');
-            });
-		},
-		
-		next : function(e){
-			var target = $(e.currentTarget);
-			var page = target.parent().parent();
-			var attr = {};
-			page.find('input[type != "button"]').each(function(){
-				var input =  $(this);
-				attr[input.attr('name')] = input.val();
-			});
-			
-			if(!this.model.set(attr, {validate:true})){
-				return;
-			}
-			var ul = $(this.el).find('ul');
-			var n = {left : - (page.position().left + page.outerWidth()) }
-			page.parent().animate(n, 400, 'swing', function() {
-				ul.find('li').eq(page.index() + 1).find('a').tab('show');
-            });
-		},
-		
-		complete : function(e){
-			var target = $(e.currentTarget);
-			var page = target.parent().parent();
-			var attr = {};
-			page.find('input[type != "button"]').each(function(){
-				var input =  $(this);
-				attr[input.attr('name')] = input.val();
-			});
-			this.model.save();
-		}
-		
-	});
+	  var Wizard = function (element, options) {
+	    this.init(element,options)
+	  }
 	
-	Backbone.sync = function(method,model){
-		console.info(method);
-		console.info(JSON.stringify(model));
-	};
+	  Wizard.DEFAULTS = {
+		  easing: 'swing',
+		  ul: '.nav-tabs',
+		  items: '.items',
+		  swing: 'swing',
+		  next: '[data-toggle="next"]',
+		  prev: '[data-toggle="prev"]',
+		  complete: '[data-toggle="complete"]',
+		  speed: 400
+	  }
 	
-	var view = new WizardView();
-});
+	  Wizard.prototype.init = function (element, options) {
+		  this.$element = $(element)
+		  this.options  = $.extend({}, Wizard.DEFAULTS, options)
+		  this.ul = this.$element.find(this.options.ul)
+		  this.items = this.$element.find(this.options.items)
+		  this.items.find(this.options.next).on('click.bs.wizard',$.proxy(function (e) {
+			  e.preventDefault()
+			  this.next(e)
+	      }, this))
+	      this.items.find(this.options.prev).on('click.bs.wizard',$.proxy(function (e) {
+			  e.preventDefault()
+			  this.prev(e)
+	      }, this))
+	       this.items.find(this.options.complete).on('click.bs.wizard',$.proxy(function (e) {
+			  e.preventDefault()
+			  this.complete(e)
+	      }, this))
+	  }
+	  
+	  Wizard.prototype.next = function(e) {
+		  var that = this
+		  var target = $(e.currentTarget)
+		  var page = target.parent().parent()
+		  var n = {left : - (page.position().left + page.outerWidth()) }
+		  that.items.animate(n, that.options.speed, that.options.swing, function() {
+			  that.ul.find('li').eq(page.index() + 1).find('a').tab('show')
+	      });
+	  }
+  
+	  Wizard.prototype.prev = function(e) {
+		  var that = this;
+		  var target = $(e.currentTarget)
+		  var page = target.parent().parent()
+		  var n = {left : page.outerWidth() - page.position().left}
+		  that.items.animate(n, that.options.speed, that.options.swing, function() {
+			  that.ul.find('li').eq(page.index() - 1).find('a').tab('show');
+	      });
+	 }
+	
+	 Wizard.prototype.complete = function(e) {
+		 console.info(111111)
+	 }
+
+  // Wizard PLUGIN DEFINITION
+  // ========================
+
+  var old = $.fn.wizard
+
+  $.fn.wizard = function (option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.wizard')
+      var options = typeof option == 'object' && option
+
+      if (!data) $this.data('bs.wizard', (data = new Wizard(this, options)))
+
+      if (option == 'toggle') data.toggle()
+      else if (option) data.setState(option)
+    })
+  }
+
+  $.fn.wizard.Constructor = Wizard
+
+
+  // BUTTON NO CONFLICT
+  // ==================
+
+  $.fn.wizard.noConflict = function () {
+    $.fn.wizard = old
+    return this
+  }
+
+}(window.jQuery);

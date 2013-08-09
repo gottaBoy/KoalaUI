@@ -7,7 +7,7 @@
   *margin-right:.3em;
   line-height:14px;
   vertical-align:text-top;
-  background-image:url("../lib/bootstrap/img/glyphicons-halflings.png");
+  background-image:url("../img/glyphicons-halflings.png");
   background-position:14px 14px;
   background-repeat:no-repeat;
 }
@@ -308,158 +308,6 @@
 .icon-tint {
   background-position:-72px -72px;
 }
-/**
-*Í¼Æ¬ÂÖ²¥
-*/
-.carousel {
-  position:relative;
-  margin-bottom:20px;
-  line-height:1;
-  width:900px;
-  height:500px;
-}
-
-.carousel-inner {
-  position:relative;
- 
-  overflow:hidden;
-}
-
-.carousel-inner > .item {
-  position:relative;
-  display:none;
-  -webkit-transition:0.6s ease-in-out left;
-     -moz-transition:0.6s ease-in-out left;
-       -o-transition:0.6s ease-in-out left;
-          transition:0.6s ease-in-out left;
-}
-
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  display:block;
-  line-height:1;
-}
-
-.carousel-inner > .active,
-.carousel-inner > .next,
-.carousel-inner > .prev {
-  display:block;
-}
-
-.carousel-inner > .active {
-  left:0;
-}
-
-.carousel-inner > .next,
-.carousel-inner > .prev {
-  position:absolute;
-  top:0;
-  width:100%;
-}
-
-.carousel-inner > .next {
-  left:100%;
-}
-
-.carousel-inner > .prev {
-  left:-100%;
-}
-
-.carousel-inner > .next.left,
-.carousel-inner > .prev.right {
-  left:0;
-}
-
-.carousel-inner > .active.left {
-  left:-100%;
-}
-
-.carousel-inner > .active.right {
-  left:100%;
-}
-
-.carousel-control {
-  position:absolute;
-  top:40%;
-  left:15px;
-  width:40px;
-  height:40px;
-  margin-top:-20px;
-  font-size:60px;
-  font-weight:100;
-  line-height:30px;
-  color:#ffffff;
-  text-align:center;
-  background:#222222;
-  border:3px solid #ffffff;
-  -webkit-border-radius:23px;
-     -moz-border-radius:23px;
-          border-radius:23px;
-  opacity:0.5;
-  filter:alpha(opacity=50);
-}
-
-.carousel-control.right {
-  right:15px;
-  left:auto;
-}
-
-.carousel-control:hover,
-.carousel-control:focus {
-  color:#ffffff;
-  text-decoration:none;
-  opacity:0.9;
-  filter:alpha(opacity=90);
-}
-
-.carousel-indicators {
-  position:absolute;
-  top:15px;
-  right:15px;
-  z-index:5;
-  margin:0;
-  list-style:none;
-}
-
-.carousel-indicators li {
-  display:block;
-  float:left;
-  width:10px;
-  height:10px;
-  margin-left:5px;
-  text-indent:-999px;
-  background-color:#ccc;
-  background-color:rgba(255, 255, 255, 0.25);
-  border-radius:5px;
-}
-
-.carousel-indicators .active {
-  background-color:#fff;
-}
-
-.carousel-caption {
-  position:absolute;
-  right:0;
-  bottom:0;
-  left:0;
-  padding:15px;
-  background:#333333;
-  background:rgba(0, 0, 0, 0.75);
-}
-
-.carousel-caption h4,
-.carousel-caption p {
-  line-height:20px;
-  color:#ffffff;
-}
-
-.carousel-caption h4 {
-  margin:0 0 5px;
-}
-
-.carousel-caption p {
-  margin-bottom:0;
-}
 
 /**
 *Tree
@@ -578,8 +426,8 @@
   background-position:-48px 0;
 }
 
-.search {
- 
+.icon-remove {
+  background-position:-312px 0;
 }
 
 .input-medium {
@@ -595,7 +443,7 @@
 .spinner .btn {
   position:relative;
   width:20px;
-  height:14px;
+  height:18px;
   padding-top:0;
   padding-right:9px;
   padding-left:9px;
@@ -1047,4 +895,79 @@
 }
 .icon-time {
   background-position:-48px -24px;
+}
+
+.wizard {
+	border:1px solid #d4d4d4;
+	font-size:12px;
+	height:450px;
+	margin:20px auto;
+	width:570px;
+	overflow:hidden;
+	position:relative;
+	-webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+	  *zoom: 1;
+	  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+
+.wizard  > ul > li >a{
+  	font-size: 18px;
+}
+.wizard .items{
+	width:20000px; 
+	clear:both; 
+	position:absolute;
+}
+
+.wizard .items .page{
+	padding:20px 60px;
+	width:565px;
+	height:400px;
+	float:left;
+}
+
+.wizard .page .right{
+	float:right;
+}
+.wizard .page .left{
+	float:left;
+}
+.wizard .page .status{
+	height:46px;
+	background:#ededed;
+}
+
+.wizard .items .page h4{
+	height:42px; 
+	border-bottom:1px dotted #ccc; 
+	margin-bottom:20px; 
+	padding-bottom:5px
+}
+
+.wizard .items .page h4 em{
+	font-size:16px; 
+}
+
+.wizard .items .page p{
+	line-height:24px;
+}
+
+.wizard .items .page p label{
+	font-size:16px; 
+	display:block;
+}
+
+.wizard .items .page > p > input{
+	width:250px;
+}
+
+
+.wizard .items .page .btn_nav{
+	height:36px; 
+	line-height:36px; 
+	margin:30px 0px;
 }
