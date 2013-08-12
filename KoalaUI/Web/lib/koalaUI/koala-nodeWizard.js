@@ -36,10 +36,21 @@
 	
 	$.fn.nodeWizard = function(option){
 		
-	}
+	};
 	
 	$.fn.nodeWizard.Constructor = NodeWizard;
 	
 	//NODEWIZARD NO CONFLICT
+	// ====================
+
+	$.fn.nodeWizard.noConflict = function () {
+		$.fn.nodeWizard = old;
+		return this;
+	};
+	
+	//NODEWIZARD DATA API
+	$(document).on("","",function(e){
+		
+	});
 	
 }(window.jQuery);
