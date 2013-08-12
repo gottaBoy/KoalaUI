@@ -971,3 +971,45 @@
 	line-height:36px; 
 	margin:30px 0px;
 }
+
+/*
+*NodeWizard
+*/
+.node_wizard{ 
+	
+}
+.node_wizard .menu {
+	
+}
+.node_wizard .menu .node {
+	width: 80%; 
+	float: left; 
+	color: #7e7e7e;
+}
+.node_wizard .menu .node > ul, 
+.node_wizard .menu .node > ul > li{
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.node_wizard .menu .node  > ul {
+	background: url(../img/hsbg_bg.jpg) repeat-x; 
+	height: 28px;
+}
+.node_wizard .menu .node  > ul > li:last-child {
+	float: left;
+	text-align: right;
+}
+.node_wizard .menu .node  > ul > li:not(:last-child) {
+	float: left;
+	text-align: left;
+}
+.node_wizard .menu .nav_btn{ 
+	width: 16%; 
+	float: right; 
+	padding-left: 20px;
+}
+.node_wizard .menu .nav_btn img{ 
+	cursor: pointer; 
+	padding-right: 20px;
+}
