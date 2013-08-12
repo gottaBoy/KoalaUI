@@ -22,19 +22,16 @@ public class MenuUtil {
 		
 		for(MenuNode mn:menuList){
 			int len = mn.getParentId().length();
-			
 			if(mn.getParentId().equalsIgnoreCase("root")){
 				rootNode.addChildMenuNode(mn);
 			}else{
 				MenuNode tmpNode = rootNode;
 				
-//				rootNode.getChildMenuNode("001").getChildMenuNode("001001")
 				for(int i=0;i<len/3;i++){
 					String id = mn.getMenu().getId().substring(0, (i+1) * 3);		//001,001001
 					
 					tmpNode = tmpNode.getChildMenuNode(id);
 				}
-				
 				tmpNode.addChildMenuNode(mn);
 			}
 		}
