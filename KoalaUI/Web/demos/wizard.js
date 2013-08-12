@@ -80,9 +80,6 @@
       var options = typeof option == 'object' && option
 
       if (!data) $this.data('bs.wizard', (data = new Wizard(this, options)))
-
-      if (option == 'toggle') data.toggle()
-      else if (option) data.setState(option)
     })
   }
 
