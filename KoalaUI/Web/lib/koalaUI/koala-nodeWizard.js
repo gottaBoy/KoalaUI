@@ -6,8 +6,10 @@
 		
 	};
 	
+	//属性列表
 	NodeWizard.DEFAULTS = {
-			
+		animate:0,			//动画速度
+		stepIndex:0			//当前索引
 	};
 	
 	//各个Prototype
@@ -36,10 +38,21 @@
 	
 	$.fn.nodeWizard = function(option){
 		
-	}
+	};
 	
 	$.fn.nodeWizard.Constructor = NodeWizard;
 	
 	//NODEWIZARD NO CONFLICT
+	// ====================
+
+	$.fn.nodeWizard.noConflict = function () {
+		$.fn.nodeWizard = old;
+		return this;
+	};
+	
+	//NODEWIZARD DATA API
+	$(document).on("","",function(e){
+		
+	});
 	
 }(window.jQuery);
