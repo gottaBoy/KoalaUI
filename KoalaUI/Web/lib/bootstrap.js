@@ -317,7 +317,6 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   }
 
   Carousel.prototype.cycle =  function (e) {
-	  return
     e || (this.paused = false)
 
     this.interval && clearInterval(this.interval)
