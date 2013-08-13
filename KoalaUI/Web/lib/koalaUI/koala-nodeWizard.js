@@ -37,7 +37,7 @@
 	
 	//获得当前处理步骤的索引值
 	NodeWizard.prototype.getActiveIndex = function(){
-		this.$active = this.$ul.find('.active');
+		this.$active = this.$node.find('.active');
 		return this.$active ? this.$node.children().index(this.$active) : this.activeIndex;
 	};
 	
