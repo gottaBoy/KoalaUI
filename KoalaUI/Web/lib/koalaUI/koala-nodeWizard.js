@@ -9,8 +9,8 @@
 		this.options = options;
 		this.$node = this.$element.find(this.options.nodeSelector);
 		this.$items = this.$element.find(this.options.itemSelector);
-		this.$node.find('li:first>div').addClass(this.options.activeClass);
-		this.$items.find('.item:first').addClass(this.options.activeClass);
+		this.$node.find(this.options.firstNodeSelector).addClass(this.options.activeClass);
+		this.$items.find(this.options.firstItemSelector).addClass(this.options.activeClass);
 		this.$element.find(this.options.prevSelector).on('click', $.proxy(this.prevStep, this));
 		this.$element.find(this.options.nextSelector).on('click', $.proxy(this.nextStep, this));
 	};
@@ -24,7 +24,9 @@
 		nextSelector: '.nav_btn > img:last',
 		nodeSelector: '.node > ul',
 		itemSelector: '.items',
-		activeClass: 'active'
+		activeClass: 'active',
+		firstNodeSelector: 'li:first>div',
+		firstItemSelector: '.item:first'
 	};
 	
 	//各个Prototype
