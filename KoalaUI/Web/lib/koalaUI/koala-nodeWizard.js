@@ -1,15 +1,30 @@
-+function($){"use strict";
++function($){
+	
+	"use strict";
 	// KoalaUI 节点向导类定义
 	// ==============================	
 
-	var NodeWizard = function(){
-		
+	var NodeWizard = function(element, options){
+		this.$element = $(element);
+		this.options = options;
+		this.$node = this.$element.find(this.options.nodeSelector);
+		this.$items = this.$element.find(this.options.itemSelector);
+		this.$node.find('li:first>div').addClass(this.options.activeClass);
+		this.$items.find('.item:first').addClass(this.options.activeClass);
+		this.$element.find(this.options.prevSelector).on('click', $.proxy(this.prevStep, this));
+		this.$element.find(this.options.nextSelector).on('click', $.proxy(this.nextStep, this));
 	};
 	
 	//属性列表
 	NodeWizard.DEFAULTS = {
-		animate:0,			//动画速度
-		stepIndex:0			//当前索引
+		animate: 0,			//动画速度
+		activeIndex: 0,			//当前索引
+		easing: 'swing', //动画方式
+		prevSelector: '.nav_btn > img:first',
+		nextSelector: '.nav_btn > img:last',
+		nodeSelector: '.node > ul',
+		itemSelector: '.items',
+		activeClass: 'active'
 	};
 	
 	//各个Prototype
@@ -19,17 +34,20 @@
 	};
 	
 	//获得当前处理步骤的索引值
-	NodeWizard.prototype.getStepIndex = function(){
-		
+	NodeWizard.prototype.getActiveIndex = function(){
+		this.$active = this.$ul.find('.active');
+		return this.$active ? this.$node.children().index(this.$active) : this.activeIndex;
 	};
 	
 	//下一步
-	NodeWizard.prototype.nextStep = function(){
+	NodeWizard.prototype.nextStep = function(e){
+		e && e.preventDefault();
+		this.activeIndex = this.getActiveIndex();
 		
 	};
 	
 	//上一步
-	NodeWizard.prototype.prevStep = function(){
+	NodeWizard.prototype.prevStep = function(e){
 		
 	};
 	
@@ -37,7 +55,15 @@
 	var old = $.fn.nodeWizard;
 	
 	$.fn.nodeWizard = function(option){
-		
+		 return this.each(function(){
+		 	  var $this = $(this);
+			  var data = $this.data('bs.NodeWizard');
+			  var options = $.extend({}, NodeWizard.DEFAULTS, $this.data(), typeof option == 'object' && option);
+			  if(!data){
+				  $this.data('bs.NodeWizard', (data = new NodeWizard(this,options)));
+			  }
+			  
+		  })
 	};
 	
 	$.fn.nodeWizard.Constructor = NodeWizard;
@@ -51,8 +77,11 @@
 	};
 	
 	//NODEWIZARD DATA API
-	$(document).on("","",function(e){
-		
+	$(window).on('load',function(e){
+		$('[data-toggle="node_wizard"]').each(function(){
+			var $nodeWizard = $(this);
+			$nodeWizard.nodeWizard();
+		})
 	});
 	
 }(window.jQuery);

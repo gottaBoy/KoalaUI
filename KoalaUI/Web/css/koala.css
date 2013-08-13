@@ -1004,6 +1004,11 @@
 	float: left;
 	text-align: left;
 }
+.node_wizard .menu .node .active{
+	background: url(../img/ls_bg.png) repeat-x; 
+	width: 28px;
+	height: 28px;
+}
 .node_wizard .menu .nav_btn{ 
 	width: 16%; 
 	float: right; 
@@ -1012,4 +1017,14 @@
 .node_wizard .menu .nav_btn img{ 
 	cursor: pointer; 
 	padding-right: 20px;
+}
+.node_wizard  .items {
+	clear: both;
+	position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.node_wizard  .items .item {
+	float: left;
+	padding: 20px 60px 40px ;
 }

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>EB网-二级页-飞行准备</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/koala.css" rel="stylesheet">
 <script src="../lib/jquery.js" type="text/javascript"></script>
+<script src="../lib/koalaUI/koala-nodeWizard.js" type="text/javascript"></script>
 <style type="text/css">
 body {
 	margin-top: 100px;
@@ -16,35 +17,35 @@ body {
 </head>
 
 <body>
-        <div class="node_wizard">    
+        <div class="node_wizard" data-toggle="node_wizard">    
         	<div class="menu"> 
 				<div class="node">
 					<ul >
-						<li height="28" style="width:15%;">
-	                    	<img src="../img/ls_bg.png" width="28" height="28" />
+						<li  style="width:15%;">
+	                    	<div class=""></div>
 	                        <p>mission</p>
 	                    </li>
-			      		<li height="28" style="width:15%;">
+			      		<li  style="width:15%;">
 	                    	<img src="../img/fs_bg.png" width="28" height="26" />
 	                        <p>weather</p>
 	                     </li>
-						<li height="28" style="width:15%;">
+						<li  style="width:15%;">
 	                    	<img src="../img/fs_bg.png" width="28" height="26" />
 	                    	<p>weather2</p>
 	                    </li>
-	                    <li height="28" style="width:15%;">
+	                    <li  style="width:15%;">
 	                    	<img src="../img/fs_bg.png" width="28" height="26" />
 	                        <p>notice</p>
 	                     </li>
-						<li height="28" style="width:15%;">
+						<li  style="width:15%;">
 	                    	<img src="../img/fs_bg.png" width="28" height="26" />
 	                        <p>data</p>
 	                    </li>
-						<li height="28" style="width:15%;">
+						<li  style="width:15%;">
 	                    	<img src="../img/fs_bg.png" width="28" height="26" />
 	                        <p>file</p>
 	                    </li>
-						<li height="28" style="width:10%;">
+						<li  style="width:10%;">
 	                    	<img src="../img/fs_bg.png" width="28" height="26" />
 	                        <p>questions</p>
 	                     </li>
@@ -56,7 +57,262 @@ body {
 		        </div> 
 	        </div>
            <div class="items">
-           		<div class="page"></div>
+           		<div class="item">
+           			<table width="100%" border="1">
+		              <tr class="fxzb_tbl_tl">
+		                <td align="center">flight NO</td>
+		                <td align="center">Mission confirm</td>
+		                <td align="center">type</td>
+		                <td align="center">Depart airprt</td>
+		                <td align="center">Arrive airport</td>
+		                <td align="center">Depart  time</td>
+		                <td align="center">Arrival time</td>
+		                <td align="center">Fleet type</td>
+		                <td align="center">Aricraft No</td>
+		                <td align="center">Crew members</td>
+		              </tr>
+		              <tr class="zts">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p><strong></strong>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                182661Han </td>
+		              </tr>
+		              <tr class="zts hs_bg">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts hs_bg">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts hs_bg">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		            </table>
+           		</div>
+           		<div class="item">
+           			<table width="100%" border="1">
+		              <tr class="fxzb_tbl_tl">
+		                <td align="center">flight NO</td>
+		                <td align="center">Mission confirm</td>
+		                <td align="center">type</td>
+		                <td align="center">Depart airprt</td>
+		                <td align="center">Arrive airport</td>
+		                <td align="center">Depart  time</td>
+		                <td align="center">Arrival time</td>
+		                <td align="center">Fleet type</td>
+		                <td align="center">Aricraft No</td>
+		                <td align="center">Crew members</td>
+		              </tr>
+		              <tr class="zts">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p><strong></strong>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                182661Han </td>
+		              </tr>
+		              <tr class="zts hs_bg">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts hs_bg">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts hs_bg">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		              <tr class="zts">
+		                <td align="center">0303</td>
+		                <td class="ft_ls" align="center">notConfirm</td>
+		                <td align="center">Fly</td>
+		                <td align="center">CAN</td>
+		                <td align="center">LHR</td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>09:05</p></td>
+		                <td align="center"><p>2013/06/25</p>
+		                <p>22:25</p></td>
+		                <td align="center">332</td>
+		                <td align="center">---</td>
+		                <td align="center"><strong>182661</strong>Han <br />
+		                  hufang(OA.DA)<br />
+		                  182661Han </td>
+		              </tr>
+		            </table>
+           		</div>
            </div>   
       </div>  
 </body>
