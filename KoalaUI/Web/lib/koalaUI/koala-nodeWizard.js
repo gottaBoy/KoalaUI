@@ -7,26 +7,25 @@
 	var NodeWizard = function(element, options){
 		this.$element = $(element);
 		this.options = options;
-		this.$node = this.$element.find(this.options.nodeSelector);
-		this.$items = this.$element.find(this.options.itemSelector);
-		this.$node.find(this.options.firstNodeSelector).addClass(this.options.activeClass);
-		this.$items.find(this.options.firstItemSelector).addClass(this.options.activeClass);
+		this.$nodes = this.$element.find('.nodes > ul');
+		this.$items = this.$element.find('.items');
+		var nodeWidth = 97.2/(this.$nodes.children().length-1);
+		this.$nodes.find('li:not(:last)').css('width', nodeWidth+'%');
+		this.$nodes.find('li:last').css('width', '2.8%');
+		this.$nodes.find('li:first>div').addClass('active');
+		this.$items.find('.item:first').addClass('active');
+		this.$items.find('.item').css('width', this.$element.width())
 		this.$element.find(this.options.prevSelector).on('click', $.proxy(this.prevStep, this));
 		this.$element.find(this.options.nextSelector).on('click', $.proxy(this.nextStep, this));
 	};
 	
 	//属性列表
 	NodeWizard.DEFAULTS = {
-		animate: 0,			//动画速度
+		animate: 400,			//动画速度
 		activeIndex: 0,			//当前索引
 		easing: 'swing', //动画方式
 		prevSelector: '.nav_btn > img:first',
 		nextSelector: '.nav_btn > img:last',
-		nodeSelector: '.node > ul',
-		itemSelector: '.items',
-		activeClass: 'active',
-		firstNodeSelector: 'li:first>div',
-		firstItemSelector: '.item:first'
 	};
 	
 	//各个Prototype
@@ -37,21 +36,62 @@
 	
 	//获得当前处理步骤的索引值
 	NodeWizard.prototype.getActiveIndex = function(){
-		this.$active = this.$node.find('.active');
-		return this.$active ? this.$node.children().index(this.$active) : this.activeIndex;
+		this.$active = this.$items.find('.active');
+		return this.$items.children().index(this.$active);
 	};
 	
 	//下一步
 	NodeWizard.prototype.nextStep = function(e){
-		e && e.preventDefault();
 		this.activeIndex = this.getActiveIndex();
-		
+		if(this.activeIndex == this.$nodes.children().length - 1){
+			return;
+		}
+		if(this.sliding){
+			return;
+		}
+		return this.slide('next');
 	};
 	
 	//上一步
 	NodeWizard.prototype.prevStep = function(e){
-		
+		this.activeIndex = this.getActiveIndex();
+		if(this.activeIndex == 0){
+			return ;
+		}
+		if(this.sliding){
+			return ;
+		}
+		return this.slide('prev');
 	};
+	
+	//滑动
+	NodeWizard.prototype.slide = function(type, next){
+		var $active = this.$items.find('.active');
+		var $next = next || $active[type]();
+		var that = this;
+		this.sliding = true;
+		if($next.hasClass('active')){
+			return;
+		}
+		if(this.$nodes.children().length){
+			this.$element.one('slid', function(){
+				var $node = $(that.$nodes.children()[that.activeIndex]);
+				if(type == 'next'){
+					$node.next().find('div').removeClass('node').addClass('active');
+				}else{
+					$node.find('div').removeClass('active').addClass('node');
+				}
+			})
+		}
+		var position = type == 'next' ? $active.position().left + $active.outerWidth() : $active.position().left - $active.outerWidth();
+		this.$items.animate({left : -position }, this.options.animate, this.options.swing, function() {
+			$next.addClass('active');
+	        $active.removeClass('active');
+	        that.sliding = false;
+	        that.$element.trigger('slid') 
+		});
+		return this;
+	}
 	
 	//节点插件定义
 	var old = $.fn.nodeWizard;
