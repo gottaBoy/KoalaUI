@@ -38,6 +38,7 @@
 			that.resizeNodes();
 		})
 		var item = $('<div class="item">');
+		item.css('width', this.$element.width());
 		this.$items.append(item) && this.$element.trigger('addNode');
 	};
 	
@@ -84,11 +85,8 @@
 		if(this.$nodes.children().length){
 			this.$element.one('slid', function(){
 				var $node = $(that.$nodes.children()[that.activeIndex]);
-				if(type == 'next'){
-					$node.next().find('div').removeClass('node').addClass('active');
-				}else{
-					$node.find('div').removeClass('active').addClass('node');
-				}
+				$node && type == 'next' ? $node.next().find('div').removeClass('node').addClass('active') 
+						: $node.find('div').removeClass('active').addClass('node');
 			})
 		}
 		var position = type == 'next' ? $active.position().left + $active.outerWidth() : $active.position().left - $active.outerWidth();
