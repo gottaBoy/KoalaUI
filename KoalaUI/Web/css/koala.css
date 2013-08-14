@@ -1006,6 +1006,10 @@
 .node_wizard .menu .nodes  > ul > li {
 	float: left;
 }
+.node_wizard .menu .nodes .libg{
+	background: url(../img/hsbg.jpg) repeat-x; 
+	height: 28px
+}
 .node_wizard .menu .nodes  > ul > li:last-child {
 	text-align: right;
 }
@@ -1023,7 +1027,7 @@
 	height: 28px
 }
 .node_wizard .menu .nav_btn{ 
-	width: 16%; 
+	width: 18%; 
 	float: right; 
 	padding-left: 20px
 }
