@@ -85,8 +85,13 @@
 		if(this.$nodes.children().length){
 			this.$element.one('slid', function(){
 				var $node = $(that.$nodes.children()[that.activeIndex]);
-				$node && type == 'next' ? $node.next().find('div').removeClass('node').addClass('active') 
-						: $node.find('div').removeClass('active').addClass('node');
+				if(type == 'next' ){
+					$node.addClass('libg');
+					$node.next().find('div').removeClass('node').addClass('active'); 
+				}else{
+					$node.prev().removeClass('libg')
+					$node.find('div').removeClass('active').addClass('node');
+				}
 			})
 		}
 		var position = type == 'next' ? $active.position().left + $active.outerWidth() : $active.position().left - $active.outerWidth();
