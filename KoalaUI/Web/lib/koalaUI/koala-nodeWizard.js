@@ -9,9 +9,7 @@
 		this.options = options;
 		this.$nodes = this.$element.find('.nodes > ul');
 		this.$items = this.$element.find('.items');
-		var nodeWidth = 97.2/(this.$nodes.children().length-1);
-		this.$nodes.find('li:not(:last)').css('width', nodeWidth+'%');
-		this.$nodes.find('li:last').css('width', '2.8%');
+		this.resizeNodes();
 		this.$nodes.find('li:first>div').addClass('active');
 		this.$items.find('.item:first').addClass('active');
 		this.$items.find('.item').css('width', this.$element.width())
@@ -30,9 +28,25 @@
 	
 	//各个Prototype
 	//在后面追加节点
-	NodeWizard.prototype.appendNode = function(node){
-		
+	NodeWizard.prototype.appendNode = function(option){
+		var that = this;
+		this.$element.one('addNode', function(){
+			var node = $('<li><div class="node"/><p>newNode</p></li>');
+			var title = typeof option == 'string' ?  option : option && option.title;
+			title && node.find('p').text(title);
+			that.$nodes.append(node);
+			that.resizeNodes();
+		})
+		var item = $('<div class="item">');
+		this.$items.append(item) && this.$element.trigger('addNode');
 	};
+	
+	//调整节点宽度
+	NodeWizard.prototype.resizeNodes = function(option){
+		var nodeWidth = 97.2/(this.$nodes.children().length-1);
+		this.$nodes.find('li:not(:last)').css('width', nodeWidth+'%');
+		this.$nodes.find('li:last').css('width', '2.8%');
+	}
 	
 	//获得当前处理步骤的索引值
 	NodeWizard.prototype.getActiveIndex = function(){
@@ -43,10 +57,7 @@
 	//下一步
 	NodeWizard.prototype.nextStep = function(e){
 		this.activeIndex = this.getActiveIndex();
-		if(this.activeIndex == this.$nodes.children().length - 1){
-			return;
-		}
-		if(this.sliding){
+		if(this.sliding || this.activeIndex == this.$nodes.children().length - 1){
 			return;
 		}
 		return this.slide('next');
@@ -55,10 +66,7 @@
 	//上一步
 	NodeWizard.prototype.prevStep = function(e){
 		this.activeIndex = this.getActiveIndex();
-		if(this.activeIndex == 0){
-			return ;
-		}
-		if(this.sliding){
+		if(this.sliding || this.activeIndex == 0){
 			return ;
 		}
 		return this.slide('prev');
