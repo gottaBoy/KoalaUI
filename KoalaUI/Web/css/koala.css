@@ -1003,13 +1003,14 @@
 	background: url(../img/hsbg_bg.jpg) repeat-x; 
 	height: 28px
 }
-.node_wizard .menu .nodes  > ul > li:last-child {
+.node_wizard .menu .nodes  > ul > li {
 	float: left;
-	text-align: right
+}
+.node_wizard .menu .nodes  > ul > li:last-child {
+	text-align: right;
 }
 .node_wizard .menu .nodes  > ul > li:not(:last-child) {
-	float: left;
-	text-align: left
+	text-align: left;
 }
 .node_wizard .menu .node {
 	background: url(../img/fs_bg.png) repeat-x; 
