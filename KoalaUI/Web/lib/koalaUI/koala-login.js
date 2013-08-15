@@ -34,4 +34,20 @@
 	Login.prototype.doSubmit = function(e){
 		
 	}
+	
+	//节点插件定义
+	var old = $.fn.login
+	
+	$.fn.login = function(option){
+		
+	};
+	
+	//LOGIN NO CONFLICT
+
+	$.fn.login.noConflict = function () {
+		$.fn.login = old;
+		return this;
+	};
+	
+	$.fn.login.Constructor = Login;
 }
