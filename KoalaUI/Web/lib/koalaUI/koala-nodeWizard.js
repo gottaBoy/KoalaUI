@@ -11,14 +11,14 @@
 		this.$items = this.$element.find('.items');
 		this.resizeNodes();
 		this.$nodes.find('li:first').addClass('active');
-		this.$items.find('iframe').attr('src', this.$nodes.find('li:first').data('target') || this.$nodes.find('li:first').attr('src'));
+		this.$items.find('.item:first iframe').attr('src', this.$nodes.find('li:first').data('target') || this.$nodes.find('li:first').attr('src'));
 		this.$element.find('.nav_btn > img:first').on('click', $.proxy(this.prevStep, this));
 		this.$element.find('.nav_btn > img:last').on('click', $.proxy(this.nextStep, this));
 	};
 	
 	//属性列表
 	NodeWizard.DEFAULTS = {
-		animate: 400,			//动画速度
+		animate: 600,			//动画速度
 		activeIndex: 0,			//当前索引
 		easing: 'swing' //动画方式
 	};
@@ -29,7 +29,7 @@
 		var node = $('<li><div class="node"/><p>newNode</p></li>');
 		if(option){
 			option.title && node.find('p').text(option.title);
-			option.target && node.set('target', option.target);
+			option.target && node.data('target', option.target);
 		}	
 		this.$nodes.append(node);
 		this.resizeNodes();
@@ -37,9 +37,9 @@
 	
 	//调整节点宽度
 	NodeWizard.prototype.resizeNodes = function(option){
-		var nodeWidth = 97.2/(this.$nodes.children().length-1);
-		this.$nodes.find('li:not(:last)').css('width', nodeWidth+'%');
-		this.$nodes.find('li:last').css('width', '2.8%');
+		var nodeWidth = 99/(this.$nodes.children().length-1);
+		this.$nodes.find('li:not(:last)').width(nodeWidth+'%');
+		this.$nodes.find('li:last').width('1%');
 	}
 	
 	//获得当前处理步骤的索引值
@@ -68,22 +68,35 @@
 	
 	//滑动
 	NodeWizard.prototype.slide = function(type, next){
+		var $active = this.$items.find('.item:first');
+		var item = $('<div class="item"><iframe></iframe></div>');
+		type == 'next' ? item.appendTo(this.$items) : item.prependTo(this.$items) && this.$items.css('left', '-100%');
+		var $next = $active[type]();
+		this.$items.width('200%') && $active.width('50%') && $next.width('50%');
+		var $node = this.$nodes.find('li.active:last');
 		var that = this;
 		this.sliding = true;
 		if(this.$nodes.children().length){
 			this.$element.one('slid', function(){
-				var $node = $(that.$nodes.children()[that.activeIndex]);
-				if(type == 'next' ){
-					$node.addClass('libg').next().addClass('active'); 
-				}else{
-					$node.removeClass('active').prev().removeClass('libg')
-				}
-				var target = $node[type]().data('target') || $node[type]().attr('href');
-				target && that.$items.find('iframe').attr('src', target);
+				type == 'next' ? $node.addClass('libg').next().addClass('active') 
+						: $node.removeClass('active').prev().removeClass('libg');
 			})
 		}
-		that.sliding = false;
-		that.$element.trigger('slid');
+		this.$element.one('animate', function(){
+			//that.$items.width('200%') && $active.width('50%') && $next.width('50%');
+			that.$items.animate(type == 'next' ? {left:'-100%'} : {left: 0}, that.options.animate, that.options.swing, function(){
+				$active.remove();
+				that.$items.css('left', 0);
+				that.$items.width('100%') && $next.width('100%');
+				that.$element.trigger('slid');
+				that.sliding = false;
+			});
+		})
+		var target = $node[type]().data('target') || $node[type]().attr('href');
+		target && $next.find('iframe').attr('src', target);	
+		$next.find('iframe').on('load', function(){
+			that.$element.trigger('animate');
+		});
 		return this;
 	}
 	
