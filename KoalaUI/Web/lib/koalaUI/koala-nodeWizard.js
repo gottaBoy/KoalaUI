@@ -117,7 +117,6 @@
 	$.fn.nodeWizard.Constructor = NodeWizard;
 	
 	//NODEWIZARD NO CONFLICT
-	// ====================
 
 	$.fn.nodeWizard.noConflict = function () {
 		$.fn.nodeWizard = old;
