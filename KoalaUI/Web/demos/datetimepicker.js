@@ -1013,7 +1013,7 @@
             if (collapseData && collapseData.transitioning) return;
             expanded.collapse('hide');
             closed.collapse('show');
-            if($.browser.msie){
+            if(window.ActiveXObject){
 	            if(expanded.attr("index") == 1){
 	                $parent.parent().height(156+$this.height());
 	            }else{
