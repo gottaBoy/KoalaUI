@@ -83,7 +83,6 @@
 			})
 		}
 		this.$element.one('animate', function(){
-			//that.$items.width('200%') && $active.width('50%') && $next.width('50%');
 			that.$items.animate(type == 'next' ? {left:'-100%'} : {left: 0}, that.options.animate, that.options.swing, function(){
 				$active.remove();
 				that.$items.css('left', 0);
