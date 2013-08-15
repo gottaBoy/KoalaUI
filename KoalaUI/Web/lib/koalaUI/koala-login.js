@@ -8,8 +8,6 @@
 	
 	//属性列表
 	Login.DEFAULTS = {
-		bgColor:"",			//背景颜色
-		bgImage:"",			//背景图片
 		checkCodeUrl:"",	//验证码地址
 		loginUrl:"",		//登陆地址
 		registerUrl:""		//注册地址
