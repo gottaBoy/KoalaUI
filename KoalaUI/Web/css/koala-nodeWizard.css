@@ -1,0 +1,84 @@
+/*
+*NodeWizard
+*/
+.node_wizard{ 
+	width: 100%; 
+	height: 768px; 
+	float: left; 
+	margin-left: 35px; 
+	margin-top: 35px; 
+	overflow: hidden; 
+	background-color: #fff
+}
+.node_wizard .menu {
+	
+}
+.node_wizard .menu .nodes {
+	width: 80%; 
+	float: left; 
+	color: #7e7e7e
+}
+
+.node_wizard .menu .nodes > ul, 
+.node_wizard .menu .nodes > ul > li{
+    list-style: none outside none;
+    margin: 0;
+    padding: 0
+}
+.node_wizard .menu .nodes  > ul {
+	background: url(../img/hsbg_bg.jpg) repeat-x; 
+	height: 28px
+}
+.node_wizard .menu .nodes  > ul > li {
+	float: left;
+}
+.node_wizard .menu .nodes .libg{
+	background: url(../img/lsbg_bg.jpg) repeat-x; 
+	height: 28px
+}
+.node_wizard .menu .nodes  > ul > li:last-child {
+	text-align: right;
+}
+.node_wizard .menu .nodes  > ul > li:not(:last-child) {
+	text-align: left;
+}
+.node_wizard .menu .node {
+	background: url(../img/fs_bg.png) repeat-x; 
+	width: 28px;
+	height: 28px
+}
+.node_wizard .menu .nodes .active > div {
+	background: url(../img/ls_bg.png) repeat-x; 
+	width: 28px;
+	height: 28px
+}
+.node_wizard .menu .nav_btn{ 
+	width: 18%; 
+	float: right; 
+	padding-left: 60px
+}
+.node_wizard .menu .nav_btn img{ 
+	cursor: pointer; 
+	padding-right: 20px
+}
+.node_wizard  .items {
+	position: relative;
+	clear: both;
+    width: 100%; 
+    height: 100%;
+    overflow: hidden
+}
+.node_wizard  .items .item {
+    width: 100%; 
+    height: 100%;
+    float: left;
+    overflow: hidden
+}
+.node_wizard  .items .item > iframe {
+	border: 0 none;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 10px;
+    width: 100%;
+}
