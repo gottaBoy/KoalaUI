@@ -976,13 +976,13 @@
 *NodeWizard
 */
 .node_wizard{ 
-	width:100%; 
-	height:auto; 
-	float:left; 
-	margin-left:35px; 
-	margin-top:35px; 
-	overflow:hidden; 
-	background-color:#fff
+	width: 100%; 
+	height: 768px; 
+	float: left; 
+	margin-left: 35px; 
+	margin-top: 35px; 
+	overflow: hidden; 
+	background-color: #fff
 }
 .node_wizard .menu {
 	
@@ -1021,7 +1021,7 @@
 	width: 28px;
 	height: 28px
 }
-.node_wizard .menu .nodes .active{
+.node_wizard .menu .nodes .active > div {
 	background: url(../img/ls_bg.png) repeat-x; 
 	width: 28px;
 	height: 28px
@@ -1038,14 +1038,15 @@
 .node_wizard  .items {
 	position: relative;
 	clear: both;
-    width: 20000px; 
+    width: 100%; 
+    height: 100%;
     overflow: hidden
 }
-.node_wizard  .items .item {
-   padding: 20px 60px 40px 0;
-   float: left
-}
-.node_wizard  .items > .active{
-  display: block;
-  left: 0
+.node_wizard  .items > iframe {
+	border: 0 none;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 10px;
+    width: 100%;
 }
