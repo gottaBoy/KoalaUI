@@ -7,7 +7,8 @@
 		this.options = options;
 		$('<img>').attr('src', this.options.checkCodeUrl).appendTo($('.checkCode'));
 		$('.checkCode').on('click', $.proxy(this.changeCheckCode, this));
-		this.$element.on('submit', $.proxy(this.doLogin, this));
+		this.$element.find('[data-toggle="loginBtn"]').on('click', $.proxy(this.doLogin, this));
+		this.$element.find('[data-toggle="registerBtn"]').on('click', $.proxy(this.doRegister, this));
 	};
 
 	//属性列表
@@ -25,14 +26,15 @@
 
 	//注册方法
 	Login.prototype.doRegister = function(){
-
+		this.$element.attr('action', this.options.registerUrl);
+		this.$element.submit();
 	}
 
 	//验证参数
 	Login.prototype.validate = function(){
 		var that = this;
 		var flag = true;
-		this.$element.find('input').each(function(index, element){
+		this.$element.find('input[type!="button",type!="hidden"]').each(function(index, element){
 			var $element = $(element);
 			if($element.val().length == 0){
 				//that.showMessage($element);
@@ -58,6 +60,7 @@
 			return false;
 		}
 		this.options.loginUrl && this.$element.attr('action', this.options.loginUrl);
+		this.$element.submit();
 	}
 
 	//节点插件定义

@@ -54,7 +54,8 @@ a {
 	color:#999;
 	clear:both;
 }
-.login button{
+.login a[data-toggle="loginBtn"],
+.login a[data-toggle="registerBtn"] {
 	margin-left: 25px;
 	margin-top: 15px;
 }

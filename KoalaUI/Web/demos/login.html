@@ -13,6 +13,7 @@
 $().ready(function(){
 	$('[data-toggle="login"]').login({
 		loginUrl: '../login',
+		registerUrl: '../register',
 		checkCodeUrl: '../CheckCodeServlet'
 	});
 });
@@ -46,8 +47,8 @@ $().ready(function(){
 							<div class="checkCode"></div>
 						</li>
 						<li >
-							<button class="btn btn-success btn-large but2" name="loginBtn">登陆</button>
-							<button class="btn btn-info btn-large but2" name="registerBtn">注册</button>
+							<a class="btn btn-success btn-large but2" data-toggle="loginBtn">登陆</a>
+							<a class="btn btn-info btn-large but2" data-toggle="registerBtn">注册</a>
 						</li>
 	
 					</ul>
