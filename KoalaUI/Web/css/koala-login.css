@@ -66,6 +66,9 @@ a {
 	line-height:22px;
 }
 
+.login .checkCode {
+	width: 80px;
+}
 
 /*---head-----*/
 .head{ height:110px; background:url(../images/head-bg.jpg) repeat-x;}
