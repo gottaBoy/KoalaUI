@@ -105,10 +105,10 @@
 	$.fn.nodeWizard = function(option){
 		 return this.each(function(){
 		 	  var $this = $(this);
-			  var data = $this.data('bs.NodeWizard');
+			  var data = $this.data('koala.NodeWizard');
 			  var options = $.extend({}, NodeWizard.DEFAULTS, $this.data(), typeof option == 'object' && option);
 			  if(!data){
-				  $this.data('bs.NodeWizard', (data = new NodeWizard(this,options)));
+				  $this.data('koala.NodeWizard', (data = new NodeWizard(this,options)));
 			  }
 			  
 		  })
