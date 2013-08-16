@@ -37,7 +37,7 @@
 		this.$element.find('input[type!="button",type!="hidden"]').each(function(index, element){
 			var $element = $(element);
 			if($element.val().length == 0){
-				//that.showMessage($element);
+				that.showMessage($element);
 				flag = false;
 				return false;
 			}
@@ -48,10 +48,13 @@
 	//显示提示信息
 	Login.prototype.showMessage = function($element, content){
 		$element.popover({
+			container: 'body',
 			trigger: 'manual'
-		}).focus().popover('show').on('click', function(){
+		}).focus().popover('show').on({'click': function(){
 			$element.popover('destroy');
-		});
+		}, 'blur': function(){
+			$element.popover('destroy');
+		}});
 	}
 	
 	//登陆
