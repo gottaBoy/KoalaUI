@@ -37,15 +37,23 @@
 	var old = $.fn.login
 
 	$.fn.login = function(option){
-
+		 return this.each(function(){
+		 	  var $this = $(this);
+			  var data = $this.data('koala.Login');
+			  var options = $.extend({}, Login.DEFAULTS, $this.data(), typeof option == 'object' && option);
+			  if(!data){
+				  $this.data('koala.Login', (data = new Login(this,options)));
+			  }
+			  
+		  })
 	};
 
 	//LOGIN NO CONFLICT
-
 	$.fn.login.noConflict = function () {
 		$.fn.login = old;
 		return this;
 	};
 
 	$.fn.login.Constructor = Login;
+	
 }(window.jQuery);
