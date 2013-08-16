@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <description></description>
     <display-name>MenuServlet</display-name>
@@ -20,27 +19,34 @@
     <servlet-name>MenuServlet</servlet-name>
     <url-pattern>/MenuServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  		<description></description>
-  		<display-name>DataGridServlet</display-name>
-  		<servlet-name>DataGridServlet</servlet-name>
-  		<servlet-class>org.openkoala.koalaui.servlet.DataGridServlet</servlet-class>
+    <description></description>
+    <display-name>DataGridServlet</display-name>
+    <servlet-name>DataGridServlet</servlet-name>
+    <servlet-class>org.openkoala.koalaui.servlet.DataGridServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  		<servlet-name>DataGridServlet</servlet-name>
-  		<url-pattern>/DataGridServlet</url-pattern>
+    <servlet-name>DataGridServlet</servlet-name>
+    <url-pattern>/DataGridServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  		<description></description>
-  		<display-name>GridServlet</display-name>
-  		<servlet-name>GridServlet</servlet-name>
-  		<servlet-class>org.openkoala.koalaui.servlet.GridServlet</servlet-class>
+    <description></description>
+    <display-name>GridServlet</display-name>
+    <servlet-name>GridServlet</servlet-name>
+    <servlet-class>org.openkoala.koalaui.servlet.GridServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  		<servlet-name>GridServlet</servlet-name>
-  		<url-pattern>/people/*</url-pattern>
+    <servlet-name>GridServlet</servlet-name>
+    <url-pattern>/people/*</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>CheckCodeServlet</display-name>
+    <servlet-name>CheckCodeServlet</servlet-name>
+    <servlet-class>org.openkoala.koalaui.servlet.CheckCodeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckCodeServlet</servlet-name>
+    <url-pattern>/CheckCodeServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
