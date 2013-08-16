@@ -7,11 +7,14 @@
 <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
 <link href="../css/koala-login.css" rel="stylesheet" media="screen">
 <script src="../lib/jquery.js"></script>
-<script src="../lib/bootstrap.min.js"></script>
+<script src="../lib/bootstrap.js"></script>
 <script src="../lib/koalaUI/koala-login.js"></script>
 <script type="text/javascript">
 $().ready(function(){
-	$('[data-toggle="login"]').login();
+	$('[data-toggle="login"]').login({
+		loginUrl: '../login',
+		checkCodeUrl: '../CheckCodeServlet'
+	});
 });
 </script>
 <meta charset="utf-8">
@@ -29,22 +32,22 @@ $().ready(function(){
 	<div class="hr-5"></div>
 	<div class="bg_c">
 		<div class="container login_con1">
-			<form data-toggle="login">
+			<form data-toggle="login" method="post">
 				<div class="col-xs-4"></div>
 				<div class="col-xs-4"></div>
 				<div class="col-xs-4 login">
 					<ul>
 						<li><p>用户名：</p> <input name="userName" class="form-control"
-							type="text" /></li>
+							type="text" data-content="用户名不能为空"/></li>
 						<li><p>密　码：</p> <input name="password" class="form-control"
-							type="password" /></li>
+							type="password" data-content="密码不能为空"/></li>
 						<li><p>校验码：</p>
-							<input name="checkCode" class="form-control checkCode" type="text" />
-							<div>111111111111</div>
+							<input name="checkCode" class="form-control" type="text" data-content="验证码不能为空"/>
+							<div class="checkCode"></div>
 						</li>
-						<li class="pad-st-l60">
-							<button class="btn btn-success btn-large but2">登陆</button>
-							<button class="btn btn-info btn-large but2">注册</button>
+						<li >
+							<button class="btn btn-success btn-large but2" name="loginBtn">登陆</button>
+							<button class="btn btn-info btn-large but2" name="registerBtn">注册</button>
 						</li>
 	
 					</ul>

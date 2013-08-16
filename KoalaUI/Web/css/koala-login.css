@@ -54,6 +54,11 @@ a {
 	color:#999;
 	clear:both;
 }
+.login button{
+	margin-left: 25px;
+	margin-top: 15px;
+}
+
 .login input{ 
 	width:160px; 
 	line-height:30px; 
@@ -66,8 +71,20 @@ a {
 	line-height:22px;
 }
 
-.login .checkCode {
+.login input[name="checkCode"] {
 	width: 80px;
+}
+
+.login .checkCode {
+	float: left;
+    padding-left: 4px;
+    padding-bottom: 4px;
+    width: 120px;
+}
+
+.login .checkCode img{
+    height: 26px;
+    padding-bottom: 2px;
 }
 
 /*---head-----*/

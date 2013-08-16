@@ -5,7 +5,9 @@
 	var Login = function(element, options){
 		this.$element = $(element);
 		this.options = options;
-		this.$element.on('submit', $.proxy(this.doSubmit, this));
+		$('<img>').attr('src', this.options.checkCodeUrl).appendTo($('.checkCode'));
+		$('.checkCode').on('click', $.proxy(this.changeCheckCode, this));
+		this.$element.on('submit', $.proxy(this.doLogin, this));
 	};
 
 	//属性列表
@@ -16,13 +18,9 @@
 	}
 
 	//替换验证码
-	Login.prototype.changeCheckCode = function(){
-		
-	};
-
-	//登陆方法
-	Login.prototype.doLogin = function(){
-		
+	Login.prototype.changeCheckCode = function(e){
+		var src = this.options.checkCodeUrl + '?random='+new Date().getTime();
+		$(e.currentTarget).find('img').attr('src', src);
 	};
 
 	//注册方法
@@ -30,10 +28,36 @@
 
 	}
 
-	//提交事件的方法
-	Login.prototype.doSubmit = function(){
-		
-		return false;
+	//验证参数
+	Login.prototype.validate = function(){
+		var that = this;
+		var flag = true;
+		this.$element.find('input').each(function(index, element){
+			var $element = $(element);
+			if($element.val().length == 0){
+				//that.showMessage($element);
+				flag = false;
+				return false;
+			}
+		});
+		return flag;
+	}
+	
+	//显示提示信息
+	Login.prototype.showMessage = function($element, content){
+		$element.popover({
+			trigger: 'manual'
+		}).focus().popover('show').on('click', function(){
+			$element.popover('destroy');
+		});
+	}
+	
+	//登陆
+	Login.prototype.doLogin = function(){
+		if(!this.validate()){
+			return false;
+		}
+		this.options.loginUrl && this.$element.attr('action', this.options.loginUrl);
 	}
 
 	//节点插件定义
