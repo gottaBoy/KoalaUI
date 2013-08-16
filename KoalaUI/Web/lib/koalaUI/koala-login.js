@@ -3,7 +3,9 @@
 
 	//Koala Login组件类定义
 	var Login = function(element, options){
-
+		this.$element = $(element);
+		this.options = options;
+		this.$element.on('submit', $.proxy(this.doSubmit, this));
 	};
 
 	//属性列表
@@ -15,12 +17,12 @@
 
 	//替换验证码
 	Login.prototype.changeCheckCode = function(){
-
+		
 	};
 
 	//登陆方法
 	Login.prototype.doLogin = function(){
-
+		
 	};
 
 	//注册方法
@@ -29,8 +31,9 @@
 	}
 
 	//提交事件的方法
-	Login.prototype.doSubmit = function(e){
-
+	Login.prototype.doSubmit = function(){
+		
+		return false;
 	}
 
 	//节点插件定义
